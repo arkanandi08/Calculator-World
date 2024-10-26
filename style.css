@@ -88,9 +88,10 @@ body.loaded #world {
   }
   .AN{
   position: fixed;
-  top: 4.3vh;
-  left: 6.4vh;
-  font-size: 3.5vh;
+  top: 4.7vh;
+  left: 6.2vh;
+  font-size: 3vh;
+  font-weight: bolder;
   }
   .cal{
     top: 15vh;
