@@ -1,0 +1,264 @@
+#loader1 {
+  background: linear-gradient(45deg, rgba(255, 215, 0, 0.5), rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0.5), rgba(255, 255, 255, 0.5));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.an{
+  font-size: 15vh;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  top: 40%;
+  left: 30%;
+  padding: 3vh;
+  border: 5px solid;
+  border-radius: 10%;
+}
+.loader{
+  position: fixed;
+  left: 45%;
+  bottom: 12vh;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#world {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.loaded #loader1 {
+  display: none;
+}
+
+body.loaded #world {
+  opacity: 1;
+}
+
+
+
+
+@media only screen and (max-width : 105vh) {
+  .sun {
+    width: 13vh;
+    min-height: 13vh;
+  }
+  .head {
+    word-spacing: 80vh;
+  }
+
+  .more {
+    margin-top: 3vh;
+    margin-right: 1vh;
+  }
+
+  #background-video {
+    height: 100%;
+  }
+
+  .planetim {
+    width: 80vw;
+    margin-left: -20%;
+    margin-top: 20%;
+  }
+
+
+  #spaceship2 {
+    display: none;
+  }
+
+  .ship {
+    rotate: 270deg;
+    position: fixed;
+    bottom: 0;
+    margin-top: 60%;
+    left: 32%;
+  }
+  .AN{
+  position: fixed;
+  top: 4.3vh;
+  left: 6.4vh;
+  font-size: 3.5vh;
+  }
+  .cal{
+    top: 15vh;
+  }
+}
+@media only screen and (min-width : 105vh) {
+  .AN{
+    position: fixed;
+    top: 3vh;
+    left: 4.8vh;
+    font-size: 2vh;}
+    .cal{
+      top: 10vh;
+    }
+}
+.container {
+  overflow: hidden;
+}
+
+.sliding-background {
+  background: url("space.jpg") repeat-x;
+  background-size: 360vh;
+  height: 1000px;
+  width: 50076px;
+  position: fixed;
+  top: 0;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+header {
+  background-color: rgba(21, 1, 111, 0.825);
+  color: rgb(255, 0, 0);
+  font-size: 7vh;
+  font-weight: bolder;
+  padding-left: 8vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.AN{
+  color: rgb(2, 2, 109);
+  font-family: Impact;
+  text-shadow: rgb(255, 106, 0) 0.1em 0.1em 0.2em;
+  letter-spacing: 0.3vh;
+}
+.sun {
+  height: 8vh;
+  position: fixed;
+  top: 0;
+  left: 2vh;
+  animation: spin 5s linear infinite;
+}
+.head {
+  font-size: 6vh;
+  color: rgb(255, 0, 0);
+  bottom: 10vh;
+  left: 8vh;
+  right: 8vh;
+  text-align: center;
+  justify-content: center;
+}
+
+.more {
+  position: fixed;
+  right: 1vh;
+  top: 1vh;
+  font-size: 5vh;
+}
+
+.planetim {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  width: 80%;
+  max-width: 72vh;
+  z-index: 1;
+  border-radius: 50%;
+  transition: all 1s ease-in-out;
+}
+
+.planetim:hover {
+  box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.7);
+  width: 85%;
+  left: 28%;
+}
+/* .shiny-border {
+  position: relative;
+  display: inline-block;
+}
+
+.shiny-border:hover::before {
+  content: "";
+  position: fixed;
+  top: 19%;
+  left: 28%;
+  width: 84%;
+  max-width: 72vh;
+  height: 84%;
+  background: linear-gradient(45deg, rgba(255, 215, 0, 0.5), rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0.5), rgba(255, 255, 255, 0.5));
+  border-radius: 50%;
+  z-index: 0;
+  animation: shiny 3s linear infinite;
+}
+
+@keyframes shiny {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+} */
+.ship {
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 1vh;
+  width: 150px;
+}
+
+.ship2 {
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 1vh;
+  width: 150px;
+  rotate: 180deg;
+}
+
+#background-video {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+}
+
+.vidbg {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.new{
+  rotate: -90deg;
+  width: 60vh;
+  margin-bottom: 15vh;
+  margin-top: 20vh;
+}
+.cal{
+  position: fixed;
+  right: 3vh;
+  height: 10vh;
+}
