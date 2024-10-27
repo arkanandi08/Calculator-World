@@ -1,5 +1,4 @@
 #loader1 {
-  background: linear-gradient(45deg, rgba(255, 215, 0, 0.5), rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0.5), rgba(255, 255, 255, 0.5));
   position: fixed;
   top: 0;
   left: 0;
@@ -46,7 +45,6 @@ body.loaded #loader1 {
 body.loaded #world {
   opacity: 1;
 }
-
 
 
 
@@ -254,7 +252,7 @@ header {
 }
 .new{
   rotate: -90deg;
-  width: 60vh;
+  width: 50vh;
   margin-bottom: 15vh;
   margin-top: 20vh;
 }

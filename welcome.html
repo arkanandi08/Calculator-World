@@ -10,12 +10,38 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body align="center" bgcolor="black" text="white">
-       <h1>WELCOME!!!</h1> 
-        <div>
+      
+              <div id="loader1"
+              style="background: linear-gradient(45deg, rgba(255, 215, 0, 0.5), rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0.5), rgba(255, 255, 255, 0.5));">
+            <p align="center">
+            <img src="logo.png" style="height: 50vh; margin-top: 10vh;"></p>
+            <div style="position: fixed; bottom: 5vh; text-align: center; justify-content: center; width: 100%; color: rgb(0, 238, 255); font-size: 4vh;">
+                <div class="loader"></div>
+                loading...
+            </div>
+        </div>
+        
+                <div style="z-index: 2;">
+        <video autoplay muted loop id="background-video">
+        <source src="Vid.mp4" type="video/mp4">
+        Travelling....
+    </video></div>
+        
+           <div id="world">
+        <div class="container">
+        <div class="sliding-background">
+        </div>
+        </div>
+        
+        <div style="position: fixed;">
+                 <h1>WELCOME!!!</h1>
             Welcome to this amazing world of calculators.<br>
             Here you will find numerous calculators across this miniverse by entering various worlds/planets you can acces the wide variety of calculators.<br>
-            <img src="new.gif" class="new"><br>
+            <a href="vid.html">
+            <img src="new.gif" class="new">
+            </a><br>
             Tap the rocket to enter in the miniverse.
         </div>
+           </div>
     </body>
     </html>
