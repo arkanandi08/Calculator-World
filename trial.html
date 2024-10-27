@@ -1,133 +1,154 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
     <style>
-        .calculator {
-            width: 180px;
-            margin: 10px auto;
-            background: black;
-            border-radius:5%;
-            padding:10px;
-        }
-        .display {
-            width: 100%;
-            height: 40px;
-            text-align: right;
-            font-size: 24px;
-            padding: 5px;
-            box-sizing: border-box;
-            background:  black;
-            color: white;
-        }
+        @media only screen and (max-width : 105vh) {
         .buttons {
+            margin-top: 14vh;
+            margin-left: 2vw;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
+            column-gap: 4vw;
+            row-gap: 2vh;
         }
         button {
-            width: 100%;
-            height: 30px;
-            font-size: 15px;
-            background:  grey;
+            min-width: 8vh;
+            width: 20vw;
+            max-width: 15vh;
+            min-height: 8vh;
+            font-size: 3.5vh;
+            background:  rgb(55, 54, 54);
             color: white;
             border-radius: 45%;
         }
+        .display {
+            margin-top: 15vh;
+            font-size: 7vh;
+        }
+        } 
+        
+
+        @media only screen and (min-width : 105vh) {
+        .buttons {
+            margin-top: 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;}
+
+        button {
+            font-size: 5vh;
+            background:  rgb(55, 54, 54);
+            color: white;
+            padding: 8px;
+        }
+        .display {
+            max-width: 99%;
+            margin-top: 10%;
+            font-size: 10vh;
+        }
+    }
+                                        /* khatam
+                                        neeche common */
+        .display{
+            width: 99%;
+            padding: 5px;
+            background:  black;
+            color: white;
+            text-align: right;
+            overflow: hidden;
+        }
     </style>
 </head>
-<body>
+<body bgcolor="black">
 
-<div class="calculator"><br>
-    <div class="display" id="display">0</div>
-    <div class="buttons">
-        <button onclick="val('2.718')">e</button>
-        <button onclick="val('(')">(</button>
-        <button onclick="val(')')">)</button>
-        <button onclick="val('22/7')">π</button>
+    <font face="Arial Rounded MT"><div class="display" id="display">
+        0</div>
+    <p class="buttons" align="center">
+                <button onclick="trig('sec')">sec</button>
+                <button onclick="trig('cosec')">cosec</button>
+                <button onclick="trig('cot')">cot</button>
+                <button>^</button>
 
-        <button onclick="cler()">AC</button>
-        <button onclick="val('/100')">%</button>
-        <button onclick="del()">⌫</button>
-        <button onclick="val('/')">÷</button>
+                <button onclick="trig('sin')">sin</button>
+                <button onclick="trig('cos')">cos</button>
+                <button onclick="trig('tan')">tan</button>
+                <button>^</button>
 
-        <button onclick="val('7')">7</button>
-        <button onclick="val('8')">8</button>
-        <button onclick="val('9')">9</button>
-        <button onclick="val('*')">×</button>
-
-        <button onclick="val('4')">4</button>
-        <button onclick="val('5')">5</button>
-        <button onclick="val('6')">6</button>
-        <button onclick="val('-')">–</button>
-
-        <button onclick="val('1')">1</button>
-        <button onclick="val('2')">2</button>
-        <button onclick="val('3')">3</button>
-        <button onclick="val('+')">+</button>
-        <button onclick="val('00')">00</button>
-        <button onclick="val('0')">0</button>
-        <button onclick="val('.')">.</button>
-        <button onclick="calcu()" style="background:darkorange;">=</button>
+      
+                <button onclick="val('2.718')">e</button>
+                <button onclick="val('(')">(</button>
+                <button onclick="val(')')">)</button>
+                <button onclick="val('Math.PI')">π</button>
+                      
+                <button onclick="cler()">AC</button>
+                <button onclick="val('/100')">%</button>
+                <button onclick="del()">⌫</button>
+                <button onclick="val('/')">÷</button>
         
-        <!-- Trigonometric buttons in degrees -->
-        <button onclick="trig('sin')">sin</button>
-        <button onclick="trig('cos')">cos</button>
-        <button onclick="trig('tan')">tan</button>
-    </div>
-</div>
-
-<script>
-    let display = document.getElementById('display');
-    
-    // Function to add value to display
-    function val(value) {
-        const last = display.innerText.slice(-1);
-
-        if (already(value) && already(last)) return;
-        if (value == '.' && decpres()) {
-            return;
-        }
-        if (display.innerText == '0' && !already(value) || display.innerText == '00' && !already(value)) {
-            display.innerText = value;
-        } else {
-            display.innerText += value;
-        }
-    }
-
-    // Check if the last character is an operator
-    function already(char) {
-        return ['+', '-', '*', '/', '/100', '.'].includes(char);
-    }
-
-    // Check if decimal point is already present in the current number
-    function decpres() {
-        const no = display.innerText.split(/[\+\-\*\/]/).pop();
-        return no.includes('.');
-    }
-
-    // Clear the display
-    function cler() {
-        display.innerText = '0';
-    }
-
-    // Delete the last character
-    function del() {
-        display.innerText = display.innerText.slice(0, -1);
-        if (display.innerText === '') {
-            display.innerText = '0';
-        }
-    }
-
-    // Trigonometric functions
-    function trig(func) {
+                <button onclick="val('7')">7</button>
+                <button onclick="val('8')">8</button>
+                <button onclick="val('9')">9</button>
+                <button onclick="val('*')">×</button>
+        
+                <button onclick="val('4')">4</button>
+                <button onclick="val('5')">5</button>
+                <button onclick="val('6')">6</button>
+                <button onclick="val('-')">–</button>
+        
+                <button onclick="val('1')">1</button>
+                <button onclick="val('2')">2</button>
+                <button onclick="val('3')">3</button>
+                <button onclick="val('+')">+</button>
+                <button onclick="val('00')">00</button>
+                <button onclick="val('0')">0</button>
+                <button onclick="val('.')">.</button>
+                <button onclick="calcu()" style="background:rgb(246, 126, 21);">=</button>
+        
+        
+    </p>
+        
+        <script>
+            let display = document.getElementById('display');
+            function val(value) {
+                const last = display.innerText.slice(-1);
+        
+                if (already(value) && already(last)) return;
+                if (value == '.' && decpres()){
+                  return;}
+                if (display.innerText == '0' && !already(value)  || display.innerText == '00' && !already(value)) {
+                    display.innerText = value;
+                } else {
+                    display.innerText += value;
+                }
+            }
+            function already(char) {
+                return ['+', '-', '*', '/', '/100', '.'].includes(char);
+            }
+        
+            function decpres() {
+                const no = display.innerText.split(/[\+\-\*\/]/).pop();
+                return no.includes('.');
+            }
+        
+            function cler() {
+                display.innerText = '0';
+            }
+           function del() {
+                display.innerText = display.innerText.slice(0, -1);
+                if (display.innerText === '') {
+                    display.innerText = '0';
+                }
+            }
+          function trig(func) {
         let currentValue = parseFloat(display.innerText);
 
-        // Convert from degrees to radians for trigonometric calculation
         let radians = currentValue * (Math.PI / 180);
 
-        // Calculate the trigonometric function based on the button clicked
         let result;
         if (func === 'sin') {
             result = Math.sin(radians);
@@ -135,21 +156,29 @@
             result = Math.cos(radians);
         } else if (func === 'tan') {
             result = Math.tan(radians);
+        } else if (func === 'sec') {
+            result = 1/Math.cos(radians);
+        } else if (func === 'cosec') {
+            result = 1/Math.sin(radians);
+        } else if (func === 'cot') {
+            result = 1/Math.tan(radians);
+
         }
 
-        // Display the result
-        display.innerText = result.toFixed(8); // Rounding for a clean result
-    }
+  
+        display.innerText = result.toFixed(8);
+          }
 
-    // Calculate the result
-    function calcu() {
-        try {
-            display.innerText = eval(display.innerText);
-        } catch {
-            display.innerText = 'Error';
-        }
-    }
-</script>
 
+            function calcu() {
+                        try {
+                    display.innerText = eval(display.innerText);
+                } catch {
+                    display.innerText = 'Error';
+                }
+            }
+        </script>
+        
+</font>
 </body>
 </html>

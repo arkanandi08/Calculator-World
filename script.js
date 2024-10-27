@@ -1,6 +1,9 @@
 window.addEventListener("load", function() {
     document.body.classList.add("loaded");
 });
+function navback() {
+  window.history.back();
+}
 function enter(){
     setTimeout(function() {
         window.location.href = "home.html";
