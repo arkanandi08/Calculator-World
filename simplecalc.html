@@ -67,11 +67,17 @@
     <font face="Arial Rounded MT"><div class="display" id="display">
         0</div>
     <p class="buttons" align="center">
+                <button onclick="trig('sin')">sin</button>
+                <button onclick="trig('cos')">cos</button>
+                <button onclick="trig('tan')">tan</button>
+                <button>^</button>
+
+      
                 <button onclick="val('2.718')">e</button>
                 <button onclick="val('(')">(</button>
                 <button onclick="val(')')">)</button>
-                <button onclick="val('22/7')">π</button>
-                
+                <button onclick="val('Math.PI')">π</button>
+                      
                 <button onclick="cler()">AC</button>
                 <button onclick="val('/100')">%</button>
                 <button onclick="del()">⌫</button>
@@ -131,6 +137,23 @@
                     display.innerText = '0';
                 }
             }
+          function trig(func) {
+        let currentValue = parseFloat(display.innerText);
+
+        let radians = currentValue * (Math.PI / 180);
+
+        let result;
+        if (func === 'sin') {
+            result = Math.sin(radians);
+        } else if (func === 'cos') {
+            result = Math.cos(radians);
+        } else if (func === 'tan') {
+            result = Math.tan(radians);
+        }
+        display.innerText = result.toFixed(8);
+          }
+
+
             function calcu() {
                         try {
                     display.innerText = eval(display.innerText);
