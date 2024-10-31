@@ -84,6 +84,13 @@ body.loaded #world {
     margin-top: 60%;
     left: 32%;
   }
+    .shipf {
+    rotate: 270deg;
+    position: fixed;
+    bottom: 0;
+    margin-top: 60%;
+    left: 22%;
+  }
   .AN{
   position: fixed;
   top: 4.7vh;
@@ -169,6 +176,22 @@ header {
   right: 1vh;
   top: 1vh;
   font-size: 5vh;
+  color: yellowgreen;
+  background-color: transparent;
+  border: 0;
+  border-color: transparent;
+}
+#more{
+  position: fixed;
+  right: 0;
+  top: 13vh;
+  padding: 3vh;
+  border-radius: 10% 0 0 10%;
+  background: slategrey;
+  font-size: 5vh;
+  color: white;
+  display: none;
+  z-index: 2;
 }
 
 .planetim {
@@ -218,12 +241,31 @@ header {
   }
 } */
 .ship {
-  z-index: 3;
+  z-index: 2;
   display: block;
   position: absolute;
   top: 50%;
   right: 1vh;
   width: 150px;
+  color: white;
+}
+.shipf {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 1vh;
+  width: 150px;
+  color: white;
+}
+.which{
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 90%;
+  right: 1vh;
+  width: 150px;
+  color: white;
 }
 
 .ship2 {
@@ -257,7 +299,7 @@ header {
   margin-top: 20vh;
 }
 .cal{
-  position: fixed;
+  position: absolute;
   right: 3vh;
   height: 10vh;
 }

@@ -1,40 +1,43 @@
 window.addEventListener("load", function() {
-    document.body.classList.add("loaded");
+    const minDelay = 4500;
+    setTimeout(() => {
+        document.body.classList.add("loaded");
+    }, minDelay);
 });
 function navback() {
   window.history.back();
 }
-function enter(){
-    setTimeout(function() {
-        window.location.href = "home.html";
-    }, 4800);
-}
-function travel(){
-    var p="<p onmouseout='untravel()' id='unship'>"
-    var fire="<a href='vid.html'><img src='shiphover.gif' class='ship'></a>"
-    var pcl="</p>"
-    document.getElementById("spaceship").innerHTML=p+fire+pcl
-}
-function untravel(){
-    var pa="<p onmouseover='travel()' id='spaceship'>";
-    var i="<img src='ship.png' class='ship'>";
-    var c="</p>";
-    document.getElementById("unship").innerHTML=pa+i+c;
-}
-function travel2(){
-    var p="<p onmouseout='untravel2()' id='unship2'>"
-    var fire="<a href='vid.html'><img src='shiphover.gif' class='ship2'></a>"
-    var pcl="</p>"
-    document.getElementById("spaceship2").innerHTML=p+fire+pcl
-}
-function untravel2(){
-    var pa="<p onmouseover='travel2()' id='spaceship'>";
-    var i="<img src='ship.png' class='ship2'>";
-    var c="</p>";
-    document.getElementById("unship2").innerHTML=pa+i+c;
-}
+
 function trav() {
-    setTimeout(function() {
-        window.location.href = "home.html";
+  setTimeout(function() {
+        window.history.back();
     }, 4800);
+}
+function more(){
+  if 
+    (document.getElementById("more").style.display == "none"){
+  document.getElementById("more").style.display = "block";
+  }
+  else {
+    document.getElementById("more").style.display = "none";
+  }
+}
+
+          function trig(func) {
+        let currentValue = parseFloat(display.innerText);
+        let radians = currentValue * (Math.PI / 180);
+        if (func === 'sin') {
+                  result = Math.sin(radians);
+     } else if (func === 'cos') {
+                  result = Math.cos(radians);
+     } else if (func === 'tan') {
+                  result = Math.tan(radians);
+     } else if (func === 'sec') {
+                  result = 1 / Math.cos(radians);
+     } else if (func === 'cosec') {
+                  result = 1 / Math.sin(radians);
+     } else if (func === 'cot') {
+                  result = 1 / Math.tan(radians);
+                }
+        display.innerText = result.toFixed(8);
 }
