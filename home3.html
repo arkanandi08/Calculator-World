@@ -1,86 +1,69 @@
 <!DOCTYPE html>
-
 <html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="script.js"></script>
+  <title>
+    Calculator World
+  </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="script.js"></script>
-        <title>
-            Calculator World
-        </title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    <script language="javascript">
-function travel(){
-    var p="<p onmouseout='untravel()' id='unship'>"
-    var fire="<div class='which'><button onclick='tra()'>Previous</button> or <button onclick='tra2()'>Next</button></div><img src='shiphover.gif' class='shipf'>"
-    var pcl="</p>"
-    document.getElementById("spaceship").innerHTML=p+fire+pcl
-}
-function tra(){
-  window.location.href="home2.html";
-}
-function tra2(){
-  window.location.href="home3.html";
-}
-function untravel(){
-    var pa="<p onmouseover='travel()' id='spaceship'>";
-    var i="<img src='ship.png' class='ship'>";
-    var c="</p>";
-    document.getElementById("unship").innerHTML=pa+i+c;
-}
-function travel2(){
-    var p="<p onmouseout='untravel2()' id='unship2'>"
-    var fire="<a href='home2.html'><img src='shiphover.gif' class='ship2'></a>"
-    var pcl="</p>"
-    document.getElementById("spaceship2").innerHTML=p+fire+pcl
-}
-function untravel2(){
-    var pa="<p onmouseover='travel2()' id='spaceship'>";
-    var i="<img src='ship.png' class='ship2'>";
-    var c="</p>";
-    document.getElementById("unship2").innerHTML=pa+i+c;
-}
-        </script>
-
-    </head>
-    <body>
-        <div id="loader1" style="background: #080438;">
+<body>
+  <div id="loader1" style="background: #080438;">
     <video autoplay muted loop id="background-video">
-        <source src="Vid.mp4" type="video/mp4">
-        Travelling....
-    </video>        </div>
-        <div id="world">
-        <div class="container">
-        <div class="sliding-background">
-        </div>
-        </div>
+      <source src="Vid.mp4" type="video/mp4">
+      Travelling....
+    </video>
+  </div>
+  <div id="world">
+    <div class="container">
+      <div class="sliding-background">
+      </div>
+    </div>
     <header align="center">
-    <img src="Symbol.png" class="sun">
-    <div class="AN">AN</div>
-    <div class="head">
-      Calculator World</div>
+      <img src="Symbol.png" class="sun">
+      <div class="AN">AN</div>
+      <div class="head">
+        Calculator World</div>
       <button class="more" onclick="more()">
-      <i class="fa fa-ellipsis-v"></i>
+        <i class="fa fa-ellipsis-v"></i>
       </button>
-    </header><a href="simplecalc.html"><img src="calculator.png" class="cal"></a>
+    </header>
+    <a href="simplecalc.html"><img src="calculator.png" class="cal"></a>
     <p align="center">
-      <a href="home1.html">
-        <img src="planet3.gif" alt="Circular Image" class="planetim" id="planetim">
+      <a href="home3.html">
+        <img src="planet3.gif" alt="Planet" class="planetim" id="planetim">
       </a>
-</p>
-    <p id="spaceship" onmousemove="travel()" align="center">
-        <img src="ship.png" class="ship">
+    </p>
+    <p id="spaceship">
+      <img src="ship.png" class="ship">
+      <img src="shiphover.gif" id="shiphov" onclick="whi()">
+    <div id="which">
+      <div onclick="clwh()" style="position: relative; left: 18vh; color: red; font-size: 4vh; margin-bottom: -10px; width: 2%;">
+        ×
+      </div><br>
+      Which planet would you like to visit?<br>
+      <button onclick="window.location.href='home2.html'">Previous</button>
+      or
+      <button onclick="window.location.href='home1.html'">Next</button>
+    </div>
     </p>
     <p id="spaceship2" onmousemove="travel2()" align="center">
-        <img src="ship.png" class="ship2">
-    </p></div>
-      <div id="more">
-        Home<br><hr>
-        About<br><hr>
-        Teleporter<br><hr>
-        Contact Us<br><hr>
-        Feedback
-      </div>
-    </body>
+      <img src="ship.png" class="ship2">
+    </p>
+    <div id="more">
+      Home<br>
+      <hr>
+      About<br>
+      <hr>
+      Teleporter<br>
+      <hr>
+      Contact Us<br>
+      <hr>
+      Feedback
+    </div>
+  </div>
+</body>
 </html>

@@ -82,15 +82,14 @@ body.loaded #world {
     position: fixed;
     bottom: 0;
     margin-top: 60%;
-    left: 32%;
   }
-    .shipf {
-    rotate: 270deg;
-    position: fixed;
-    bottom: 0;
-    margin-top: 60%;
-    left: 22%;
-  }
+    #shiphov {
+      rotate: 270deg;
+      position: fixed;
+      bottom: 0;
+      margin-right: 40%;
+      margin-top: 60%;
+    }
   .AN{
   position: fixed;
   top: 4.7vh;
@@ -240,7 +239,15 @@ header {
       background-position: 0% 50%;
   }
 } */
-.ship {
+
+#spaceship{
+  z-index: 2;
+  position: absolute;
+  top: 65%;
+  right: 27%;
+  width: 150px;
+}
+#spaceship img{
   z-index: 2;
   display: block;
   position: absolute;
@@ -248,24 +255,45 @@ header {
   right: 1vh;
   width: 150px;
   color: white;
+  transition: opacity 0.3s ease;
 }
-.shipf {
-  z-index: 2;
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 1vh;
-  width: 150px;
-  color: white;
+.ship{
+  opacity: 1;
 }
-.which{
+#shiphov{
+  opacity: 0;
+}
+#spaceship:hover .ship {
+  opacity: 0;
+}
+#spaceship:hover #shiphov {
+  opacity: 1;
+}
+#spaceship:hover .which {
+  opacity: 1;
+}
+
+#which{
   z-index: 3;
-  display: block;
+  display: none;
   position: absolute;
-  top: 90%;
-  right: 1vh;
-  width: 150px;
-  color: white;
+  top: 77%;
+  right: 5%;
+  width: 145px;
+  color: black;
+  padding: 8px;
+  font-weight: bold;
+  background: greenyellow;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+}
+#which::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  border: 10px solid;
+  border-color: transparent greenyellow transparent transparent;
 }
 
 .ship2 {
@@ -302,4 +330,10 @@ header {
   position: absolute;
   right: 3vh;
   height: 10vh;
+}
+.box{
+  position: absolute;
+  top: 70%;
+  width: 50%;
+  height: 50%;
 }

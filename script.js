@@ -22,6 +22,18 @@ function more(){
     document.getElementById("more").style.display = "none";
   }
 }
+function whi(){
+  if 
+    (document.getElementById("which").style.display == "none"){
+  document.getElementById("which").style.display = "block";
+  }
+  else {
+    document.getElementById("which").style.display = "none";
+  }
+}
+function clwh() {
+  document.getElementById("which").style.display = "none";
+}
 
           function trig(func) {
         let currentValue = parseFloat(display.innerText);
