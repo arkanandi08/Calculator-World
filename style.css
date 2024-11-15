@@ -5,9 +5,10 @@
   width: 100%;
   height: 100%;
 }
-.an{
+
+.an {
   font-size: 15vh;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: fixed;
   top: 40%;
   left: 30%;
@@ -15,7 +16,8 @@
   border: 5px solid;
   border-radius: 10%;
 }
-.loader{
+
+.loader {
   position: fixed;
   left: 45%;
   bottom: 12vh;
@@ -29,8 +31,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #world {
@@ -53,6 +60,7 @@ body.loaded #world {
     width: 13vh;
     min-height: 13vh;
   }
+
   .head {
     word-spacing: 80vh;
   }
@@ -83,34 +91,41 @@ body.loaded #world {
     bottom: 0;
     margin-top: 60%;
   }
-    #shiphov {
-      rotate: 270deg;
-      position: fixed;
-      bottom: 0;
-      margin-right: 40%;
-      margin-top: 60%;
-    }
-  .AN{
-  position: fixed;
-  top: 4.7vh;
-  left: 6.2vh;
-  font-size: 3vh;
-  font-weight: bolder;
+
+  #shiphov {
+    rotate: 270deg;
+    position: fixed;
+    bottom: 0;
+    margin-right: 40%;
+    margin-top: 60%;
   }
-  .cal{
+
+  .AN {
+    position: fixed;
+    top: 4.7vh;
+    left: 6.2vh;
+    font-size: 3vh;
+    font-weight: bolder;
+  }
+
+  .cal {
     top: 15vh;
   }
 }
+
 @media only screen and (min-width : 105vh) {
-  .AN{
+  .AN {
     position: fixed;
     top: 3vh;
     left: 4.8vh;
-    font-size: 2vh;}
-    .cal{
-      top: 10vh;
-    }
+    font-size: 2vh;
+  }
+
+  .cal {
+    top: 10vh;
+  }
 }
+
 .container {
   overflow: hidden;
 }
@@ -119,7 +134,7 @@ body.loaded #world {
   background: url("space.jpg") repeat-x;
   background-size: 360vh;
   height: 1000px;
-  width: 50076px;
+  width: 9999999vh;
   position: fixed;
   top: 0;
   animation: slide 60s linear infinite;
@@ -131,7 +146,7 @@ body.loaded #world {
   }
 
   100% {
-    transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-3000px, 0, 0);
   }
 }
 
@@ -147,12 +162,13 @@ header {
   right: 0;
 }
 
-.AN{
+.AN {
   color: rgb(2, 2, 109);
   font-family: Impact;
   text-shadow: rgb(255, 106, 0) 0.1em 0.1em 0.2em;
   letter-spacing: 0.3vh;
 }
+
 .sun {
   height: 8vh;
   position: fixed;
@@ -160,6 +176,7 @@ header {
   left: 2vh;
   animation: spin 5s linear infinite;
 }
+
 .head {
   font-size: 6vh;
   color: rgb(255, 0, 0);
@@ -180,7 +197,8 @@ header {
   border: 0;
   border-color: transparent;
 }
-#more{
+
+#more {
   position: fixed;
   right: 0;
   top: 13vh;
@@ -209,6 +227,7 @@ header {
   width: 85%;
   left: 28%;
 }
+
 /* .shiny-border {
   position: relative;
   display: inline-block;
@@ -240,14 +259,15 @@ header {
   }
 } */
 
-#spaceship{
+#spaceship {
   z-index: 2;
   position: absolute;
   top: 65%;
   right: 27%;
   width: 150px;
 }
-#spaceship img{
+
+#spaceship img {
   z-index: 2;
   display: block;
   position: absolute;
@@ -257,23 +277,28 @@ header {
   color: white;
   transition: opacity 0.3s ease;
 }
-.ship{
+
+.ship {
   opacity: 1;
 }
-#shiphov{
+
+#shiphov {
   opacity: 0;
 }
+
 #spaceship:hover .ship {
   opacity: 0;
 }
+
 #spaceship:hover #shiphov {
   opacity: 1;
 }
+
 #spaceship:hover .which {
   opacity: 1;
 }
 
-#which{
+#which {
   z-index: 3;
   display: none;
   position: absolute;
@@ -287,6 +312,7 @@ header {
   border-radius: 5px;
   transition: opacity 0.3s ease;
 }
+
 #which::after {
   content: "";
   position: absolute;
@@ -315,25 +341,108 @@ header {
   object-fit: cover;
 }
 
-.vidbg {
-  position: fixed;
-  left: 0;
-  top: 0;
-}
-.new{
+.new {
   rotate: -90deg;
   width: 50vh;
   margin-bottom: 15vh;
   margin-top: 20vh;
 }
-.cal{
+
+.cal {
   position: absolute;
   right: 3vh;
   height: 10vh;
 }
-.box{
+
+.grass {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65vh;
+  background: linear-gradient(to bottom, #3b7a57, #4caf50, #76c048);
+  /*background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgQQlb7vRdiHHQJVi6e5L5jJ2CiIxgonywMw&s);
+  background-repeat: repeat;
+  background-size: 100%;
+  overflow: hidden;*/
+}
+
+.road {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  width: 90%;
+  height: 65vh;
+  clip-path: polygon(0% 100%, 100% 100%, 55% 0%, 45% 0%);
+  background: linear-gradient(to bottom, #4b4b4b, #666666, #4b4b4b);
+}
+
+.Sun {
+  position: fixed;
+  font-size: 10vh;
+}
+
+.cloud {
+  position: fixed;
+  top: 0;
+  right: 5vh;
+  font-size: 15vh;
+}
+
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35vh;
+  background: radial-gradient(circle at top left, #ffcccb, #ffe4b5, #add8e6, #87CEEB, #87CEEB);
+}
+
+.hills {
+  position: fixed;
+  left: 0;
+  top: 14vh;
+  width: 60%;
+  height: 21vh;
+  background: radial-gradient(circle at bottom, #7CFC00, #006400);
+  clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+}
+
+.hills2 {
+  position: fixed;
+  right: 0;
+  top: 14vh;
+  width: 60%;
+  height: 21vh;
+  background: linear-gradient(to top, #a1887f, #8d6e63, #6d4c41, #4e342e, #4e342e);
+  ;
+  clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+}
+
+.mathcal {
+  color: #B3B9FF;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  border-radius: 10%;
+  width: 15vh;
+  height: 30vh;
+  background: #363A62;
+  overflow: hidden;
+}
+#mc1{
+    margin-top: 90vh;
+}
+#mc2, #mc3{
+    margin-top: 20vh;
+}
+
+.scroll {
   position: absolute;
-  top: 70%;
-  width: 50%;
-  height: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
 }

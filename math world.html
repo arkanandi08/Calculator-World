@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="script.js"></script>
+  <title>
+    Calculator World
+  </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <script language="javascript">
+    window.addEventListener("scroll", function() {
+      const d = document.getElementsByClassName("mathcal");
+      const scrollPosition = window.scrollY;
+      for (let i = 0; i < d.length; i++) {
+        const n = 180 - scrollPosition * 0.5;
+        const f = 60 - scrollPosition * 0.2;
+        const t = d[i].querySelector(".text");
+        d[i].style.width = `${n}px`;
+        d[i].style.height = `${n}px`;
+        d[i].style.fontSize = `${f}px`;
+        if (scrollPosition > 200) {
+          t.style.opacity = Math.max(0, 1 - (scrollPosition - 200) / 100);
+        }
+        else {
+          t.style.opacity = 1;
+        }
+      }
+      for (let i = 1; i < d.length; i++) {
+        const n = 245 - scrollPosition * 0.5;
+        d[i].style.width = `${n}px`;
+        d[i].style.height = `${n}px`;
+        const f = 80 - scrollPosition * 0.2;
+        const t = d[i].querySelector(".text");
+        d[i].style.width = `${n}px`;
+        d[i].style.height = `${n}px`;
+        d[i].style.fontSize = `${f}px`;
+        if (scrollPosition > 300) {
+          t.style.opacity = Math.max(0, 1 - (scrollPosition - 300) / 100);
+        } else {
+          t.style.opacity = 1;
+        }
+      }
+      for (let i = 2; i < d.length; i++) {
+        const n = 315 - scrollPosition * 0.5;
+        const h = 355 - scrollPosition * 0.56;
+        d[i].style.width = `${n}px`;
+        d[i].style.height = `${h}px`;
+        const f = 113 - scrollPosition * 0.2;
+        const t = d[i].querySelector(".text");
+        d[i].style.width = `${n}px`;
+        d[i].style.height = `${h}px`;
+        d[i].style.fontSize = `${f}px`;
+        if (scrollPosition > 450) {
+          t.style.opacity = Math.max(0, 1 - (scrollPosition - 450) / 100);
+        } else {
+          t.style.opacity = 1;
+        }
+      }
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="grass"></div>
+  <div class="road"></div>
+  <div class="scroll">
+    <div class="mathcal" id="mc1"><span class="text">Trigon<br>ometry</span></div>
+    <div class="mathcal" id="mc2"><span class="text">Area</span></div>
+    <div class="mathcal" id="mc3"><span class="text">Peri-<br>meter</span></div>
+  </div>
+  <div class="sky"></div>
+  <div class="cloud">☁️🌩️</div>
+  <div class="hills"></div>
+  <div class="hills2"></div>
+  <div class="Sun"><img src="https://em-content.zobj.net/source/google/412/sun_2600-fe0f.png" width="20%" alt="☀️"></div>
+</body>
+
+</html>

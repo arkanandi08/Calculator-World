@@ -75,7 +75,9 @@
                 <button onclick="trig('cosec')">cosec</button>
                 <button onclick="trig('sec')">sec</button>
                 <button onclick="trig('cot')">cot</button>
-                <button>^</button>
+                <button onclick="root('sqroot')">√</button>
+                <button onclick="root('cbroot')">³√</button>
+
                 
                 
                 <button onclick="trig('sin')">sin</button>
@@ -148,6 +150,16 @@
                     display.innerText = '0';
                 }
             }
+            function root(typ) {
+              let val = parseFloat(display.innerText);
+              if (typ == 'sqroot') {
+                result = Math.sqrt(val)
+              }
+              else {
+                result = Math.cbrt(val)
+              }
+              display.innerText = result;
+            }
           function trig(func) {
         let currentValue = parseFloat(display.innerText);
 
@@ -169,8 +181,6 @@
                 }
         display.innerText = result.toFixed(8);
           }
-
-
             function calcu() {
                         try {
                     display.innerText = eval(display.innerText);
