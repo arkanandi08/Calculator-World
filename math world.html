@@ -9,11 +9,25 @@
     Calculator World
   </title>
   <link rel="stylesheet" type="text/css" href="style.css">
-    <script language="javascript">
+  <script language="javascript">
     window.addEventListener("scroll", function() {
       const d = document.getElementsByClassName("mathcal");
       const scrollPosition = window.scrollY;
       for (let i = 0; i < d.length; i++) {
+        const n = 175 - scrollPosition * 0.75;
+        const f = 55 - scrollPosition * 0.3;
+        const t = d[i].querySelector(".text");
+        d[i].style.width = `${n}px`;
+        d[i].style.height = `${n}px`;
+        d[i].style.fontSize = `${f}px`;
+        if (scrollPosition > 100) {
+          t.style.opacity = Math.max(0, 1 - (scrollPosition - 100) / 100);
+        }
+        else {
+          t.style.opacity = 1;
+        }
+      }
+      for (let i = 1; i < d.length; i++) {
         const n = 180 - scrollPosition * 0.5;
         const f = 60 - scrollPosition * 0.2;
         const t = d[i].querySelector(".text");
@@ -27,7 +41,7 @@
           t.style.opacity = 1;
         }
       }
-      for (let i = 1; i < d.length; i++) {
+      for (let i = 2; i < d.length; i++) {
         const n = 245 - scrollPosition * 0.5;
         d[i].style.width = `${n}px`;
         d[i].style.height = `${n}px`;
@@ -42,7 +56,7 @@
           t.style.opacity = 1;
         }
       }
-      for (let i = 2; i < d.length; i++) {
+      for (let i = 3; i < d.length; i++) {
         const n = 315 - scrollPosition * 0.5;
         const h = 355 - scrollPosition * 0.56;
         d[i].style.width = `${n}px`;
@@ -59,23 +73,121 @@
         }
       }
     });
+
+    function cl() {
+      document.getElementById("trig").style.display = "none";
+    }
+
+    function trigop() {
+      if (document.getElementById("trig").style.display == "none") {
+        document.getElementById("trig").style.display = "block";
+      }
+      else {
+        document.getElementById("trig").style.display = "none";
+      }
+    }
+
+    function trig() {
+      const d = document.getElementById("sin");
+      const s = f1.s.value;
+      const rad = s * (Math.PI / 180);
+      const sinv = Math.sin(rad);
+      d.innerText = sinv;
+
+      const d2 = document.getElementById("cos");
+      const c = document.forms["f1"].elements["c"].value;
+      const radc = c * (Math.PI / 180);
+      const cv = Math.cos(radc);
+      d2.innerText = cv;
+
+      const d3 = document.getElementById("tan");
+      const t = document.forms["f1"].elements["t"].value;
+      const radt = t * (Math.PI / 180);
+      var tv = Math.tan(radt);
+      if (t == 90) {
+      var tv = 1 / 0;
+      }
+      d3.innerText = tv;
+    }
+
+    function trig2() {
+      const d = document.getElementById("cosec");
+      const cs = document.forms["f1"].elements["cs"].value;
+      const rad = cs * (Math.PI / 180);
+      const csecv = 1 / Math.sin(rad);
+      d.innerText = csecv;
+
+      const d2 = document.getElementById("sec");
+      const s = document.forms["f1"].elements["sc"].value;
+      const radc = s * (Math.PI / 180);
+      const sv = 1 / Math.cos(radc);
+      d2.innerText = sv;
+
+      const d3 = document.getElementById("cot");
+      const c = document.forms["f1"].elements["ct"].value;
+      const radt = c * (Math.PI / 180);
+      var cv = 1 / Math.tan(radt);
+      if (c == 90) {
+      var cv = 0;
+      }
+      d3.innerText = cv;
+    }
+
+    function inv() {
+      document.getElementById("sct").style.display = "none";
+      document.getElementById("csc").style.display = "block";
+    }
+
+    function inv2() {
+      document.getElementById("csc").style.display = "none";
+      document.getElementById("sct").style.display = "block";
+    }
   </script>
 
 </head>
 
-<body>
+<body onload="cl()">
   <div class="grass"></div>
   <div class="road"></div>
   <div class="scroll">
-    <div class="mathcal" id="mc1"><span class="text">Trigon<br>ometry</span></div>
-    <div class="mathcal" id="mc2"><span class="text">Area</span></div>
-    <div class="mathcal" id="mc3"><span class="text">Peri-<br>meter</span></div>
+    <div class="mathcal" id="mc0" onclick="trigop()"><span class="text">Trigon<br>ometry</span>
+    </div>
+    <a href="">
+      <div class="mathcal" id="mc1"><span class="text">Second</span></div>
+    </a>
+    <a href="">
+      <div class="mathcal" id="mc2"><span class="text">Area</span></div>
+    </a>
+    <a href="">
+      <div class="mathcal" id="mc3"><span class="text">Peri-<br>meter</span></div>
+    </a>
   </div>
   <div class="sky"></div>
-  <div class="cloud">☁️🌩️</div>
-  <div class="hills"></div>
+  <div class="cloud">☁️</div>
   <div class="hills2"></div>
+  <div class="hills"></div>
+  <div class="tree"></div>
   <div class="Sun"><img src="https://em-content.zobj.net/source/google/412/sun_2600-fe0f.png" width="20%" alt="☀️"></div>
+  <form id="trig" name="f1">
+    <aside onclick="cl()" class="x">×</aside>
+    <h3>Enter value of θ° and find values</h3>
+    <hr>
+    <section id="sct">
+      sin(<input type="number" name="s" value="0">°) = <div id="sin"></div><br>
+      cos(<input type="number" name="c" value="0">°) = <div id="cos"></div><br>
+      tan(<input type="number" name="t" value="0">°) = <div id="tan"></div><br>
+      <button onclick="inv()" type="button">Invert</button>
+      <button onclick="trig()" type="button">Check</button>
+    </section>
+    <section id="csc">
+      cosec(<input type="number" name="cs" value="0">°) = <div id="cosec"></div><br>
+      sec(<input type="number" name="sc" value="0">°) = <div id="sec"></div><br>
+      cot(<input type="number" name="ct" value="0">°) = <div id="cot"></div><br>
+      <button onclick="inv2()" type="button">Invert</button>
+      <button onclick="trig2()" type="button">Check</button>
+    </section>
+  </form>
+
 </body>
 
 </html>

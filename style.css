@@ -76,14 +76,17 @@ body.loaded #world {
 
   .planetim {
     width: 80vw;
-    margin-left: -20%;
-    margin-top: 20%;
   }
 
 
   #spaceship2 {
     display: none;
   }
+
+  #spaceship3 {
+    display: none;
+  }
+
 
   .ship {
     rotate: 270deg;
@@ -123,6 +126,80 @@ body.loaded #world {
 
   .cal {
     top: 10vh;
+  }
+
+  #spaceship {
+    display: none;
+  }
+
+  .shipL {
+    rotate: 180deg;
+  }
+
+  #spaceship2 {
+    z-index: 2;
+    left: 2vh;
+    width: 150px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -30%);
+  }
+
+  #spaceship3 {
+    z-index: 2;
+    right: 2vh;
+    width: 150px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -30%);
+  }
+
+  #spaceship2 img {
+    z-index: 2;
+    width: 150px;
+    color: white;
+    transition: opacity 0.3s ease;
+  }
+
+  #spaceship3 img {
+    z-index: 2;
+    width: 150px;
+    color: white;
+    transition: opacity 0.3s ease;
+  }
+
+  .shipL {
+    opacity: 1;
+  }
+
+  .shipR {
+    opacity: 1;
+  }
+
+  #shiphovL {
+    opacity: 0;
+    rotate: 180deg;
+    margin-top: -150px;
+  }
+
+  #shiphovR {
+    opacity: 0;
+  }
+
+  #spaceship2:hover .shipL {
+    opacity: 0;
+  }
+
+  #spaceship3:hover .shipR {
+    opacity: 0;
+  }
+
+  #spaceship2:hover #shiphovL {
+    opacity: 1;
+  }
+
+  #spaceship3:hover #shiphovR {
+    opacity: 1;
   }
 }
 
@@ -198,7 +275,7 @@ header {
   border-color: transparent;
 }
 
-#more {
+.moreopt {
   position: fixed;
   right: 0;
   top: 13vh;
@@ -212,9 +289,10 @@ header {
 }
 
 .planetim {
-  position: absolute;
-  left: 30%;
-  top: 20%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 80%;
   max-width: 72vh;
   z-index: 1;
@@ -322,25 +400,6 @@ header {
   border-color: transparent greenyellow transparent transparent;
 }
 
-.ship2 {
-  z-index: 3;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 1vh;
-  width: 150px;
-  rotate: 180deg;
-}
-
-#background-video {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  max-height: 100vh;
-  object-fit: cover;
-}
-
 .new {
   rotate: -90deg;
   width: 50vh;
@@ -354,13 +413,22 @@ header {
   height: 10vh;
 }
 
+.x {
+  justify-self: right;
+  color: red;
+  font-size: 30px;
+  margin-bottom: -20px;
+  margin-right: 20px;
+  width: 2%;
+}
+
 .grass {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 65vh;
-  background: linear-gradient(to bottom, #3b7a57, #4caf50, #76c048);
+  height: 66vh;
+  background: linear-gradient(to bottom, #055629, #4caf50, #76c048);
   /*background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgQQlb7vRdiHHQJVi6e5L5jJ2CiIxgonywMw&s);
   background-repeat: repeat;
   background-size: 100%;
@@ -372,9 +440,9 @@ header {
   bottom: 0;
   right: 5%;
   width: 90%;
-  height: 65vh;
+  height: 66vh;
   clip-path: polygon(0% 100%, 100% 100%, 55% 0%, 45% 0%);
-  background: linear-gradient(to bottom, #4b4b4b, #666666, #4b4b4b);
+  background: linear-gradient(to bottom, #3B3838, #666666, #555252);
 }
 
 .Sun {
@@ -389,31 +457,42 @@ header {
   font-size: 15vh;
 }
 
+.tree {
+  position: fixed;
+  top: 29vh;
+  width: 100%;
+  height: 7vh;
+  background-size: 6vh;
+  background-image: url("https://em-content.zobj.net/source/google/412/deciduous-tree_1f333.png");
+  background-repeat: repeat-x;
+}
+
+
 .sky {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 35vh;
+  height: 34vh;
   background: radial-gradient(circle at top left, #ffcccb, #ffe4b5, #add8e6, #87CEEB, #87CEEB);
 }
 
 .hills {
   position: fixed;
-  left: 0;
+  left: -1vh;
   top: 14vh;
   width: 60%;
-  height: 21vh;
+  height: 20vh;
   background: radial-gradient(circle at bottom, #7CFC00, #006400);
   clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
 }
 
 .hills2 {
   position: fixed;
-  right: 0;
+  right: -1vh;
   top: 14vh;
   width: 60%;
-  height: 21vh;
+  height: 20vh;
   background: linear-gradient(to top, #a1887f, #8d6e63, #6d4c41, #4e342e, #4e342e);
   ;
   clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
@@ -427,16 +506,27 @@ header {
   justify-content: center;
   justify-self: center;
   border-radius: 10%;
-  width: 15vh;
-  height: 30vh;
+  width: 26vh;
+  height: 26vh;
+  font-size: 8vh;
   background: #363A62;
   overflow: hidden;
+  box-shadow: 1px 5px 7px #2C2D37;
 }
-#mc1{
-    margin-top: 90vh;
+
+.scroll a {
+  color: #B3B9FF;
+  text-decoration: none;
 }
-#mc2, #mc3{
-    margin-top: 20vh;
+
+#mc0 {
+  margin-top: 70vh;
+}
+
+#mc2,
+#mc3,
+#mc1 {
+  margin-top: 20vh;
 }
 
 .scroll {
@@ -445,4 +535,42 @@ header {
   left: 0;
   width: 100%;
   height: 200%;
+}
+
+#trig {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  padding: 10px;
+  border: 3px solid #FF5D00E8;
+  border-radius: 10%;
+  background: #46485ED9;
+  display: none;
+  text-align: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #00FFED;
+}
+
+#trig h3 {
+  color: #FBFF00;
+}
+
+#trig input {
+  width: 50px;
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#trig div{
+  width: 100%;
+  height: 20px;
+  background: white;
+  color: black;
+  font-size: 20px;
+}
+#csc {
+  display: none;
 }

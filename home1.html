@@ -34,7 +34,7 @@
     </header>
     <a href="simplecalc.html"><img src="calculator.png" class="cal"></a>
     <p align="center">
-      <a href="math world.html">
+      <a href="home1.html">
         <img src="planet1.gif" alt="Planet" class="planetim" id="planetim">
       </a>
     </p>
@@ -42,7 +42,7 @@
       <img src="ship.png" class="ship" onclick="whi()">
       <img src="shiphover.gif" id="shiphov" onclick="whi()">
     <div id="which">
-      <div onclick="clwh()" style="position: relative; left: 18vh; color: red; font-size: 4vh; margin-bottom: -10px; width: 2%;">
+      <div onclick="clwh()" class="x">
         ×
       </div><br>
       Which planet would you like to visit?<br>
@@ -51,10 +51,14 @@
       <button onclick="window.location.href='home2.html'">Next</button>
     </div>
     </p>
-    <p id="spaceship2" onmousemove="travel2()" align="center">
-      <img src="ship.png" class="ship2">
+    <p id="spaceship2">
+      <img src="ship.png" class="shipL">
+      <img src="shiphover.gif" id="shiphovL"></p>
+    <p id="spaceship3">
+      <img src="ship.png" class="shipR">
+      <img src="shiphover.gif" id="shiphovR">
     </p>
-    <div id="more">
+    <div id="more" class="moreopt">
       Home<br>
       <hr>
       About<br>

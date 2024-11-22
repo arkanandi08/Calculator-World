@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Area
+  </title>
+  <script language="javascript">
+    function chang() {
+      document.body.style.backgroundColor = "green";
+    }
+
+    function shorttri() {
+      var b, h, a;
+      b = prompt("Enter Base of the triangle");
+      h = prompt("Enter Height of the triangle");
+      a = 1 / 2 * b * h;
+      alert("The area of triangle with base " + b + " and with height " + h + " is " + a);
+    }
+
+    function tri() {
+      var a, b, c;
+      b = f1.t1.value;
+      h = f1.t2.value;
+      c = 1 / 2 * b * h;
+      f1.t3.value = c;
+      confirm("Do you want to see result?");
+      alert("The area of triangle with base " + b + " and with height " + h + " is " + c);
+    }
+
+    function trial() {
+      alert("Please don't enter anything here");
+      f1.t3.value = "";
+    }
+
+    function greater() {
+      var a, b, c;
+      a = f1.t4.value;
+      b = f1.t5.value;
+      c = f1.t6.value;
+      if (a > b && a > c) {
+        alert(a + " is the greatest");
+      }
+      else if (b > a && b > c) {
+        alert(b + " is greatest")
+      }
+      else if (c > a && c > b) {
+        alert(c + " is greatest")
+      }
+      else if (c == a && c == b) {
+        alert("All numbers are equal")
+      }
+      else if (c == a && c != b) {
+        alert("1st number is equal to 3rd")
+      }
+      else if (b == a && b != c) {
+        alert("1st number is equal to 2nd")
+      }
+
+      else {
+        alert("2nd is equal to 3rd")
+      }
+    }
+
+    function odev() {
+      var a;
+      a = f1.t7.value;
+      if (a % 2 == 0) {
+        alert(a + " is even");
+      } else {
+        alert(a + " is odd");
+      }
+    }
+
+    function nam() {
+      var a = f1.t8.value;
+      if(confirm("Change background color "+a)){
+        document.bgColor="pink";
+      }
+      else {
+        alert("no")
+      }
+    }
+
+    function marks() {
+      var p, c, m, g, e, i, marks, per;
+      p = parseInt(prompt("Enter your marks in physics"));
+      c = parseInt(prompt("Enter your marks in Chemistry"));
+      m = parseInt(prompt("Enter your marks in maths"));
+      g = parseInt(prompt("Enter your marks in geography"));
+      e = parseInt(prompt("Enter your marks in english"));
+      i = parseInt(prompt("Enter your marks in IT"));
+      marks = p + c + m + g + e + i;
+      per = marks / 300 * 100;
+      alert("You got " + marks + " marks");
+      alert("You got " + per + "%");
+      if (per >= 75) {
+        alert("And you got Distinction");
+      }
+      else if (per >= 60 && per < 75) {
+        alert("And you got First Class");
+      }
+      else if (per >= 45 && per < 60) {
+        alert("And you got Second Class");
+      }
+      else if (per >= 35 && per < 45) {
+        alert("And you got Pass Class");
+      }
+      else {
+        alert("And you are Fail");
+      }
+    }
+    function add(){
+      var a,b;
+      a=parseInt(f1.n1.value);
+      b=parseInt(f1.n2.value);
+      f1.ans.value=a+b;
+    }
+  </script>
+</head>
+
+<body align="center" bgcolor="skyblue" ondblclick="chang()">
+  <h1>
+    <font color="red">Area Calculators</font>
+  </h1>
+  <hr>
+  <h3>Area of a triangle</h3>
+  <form name="f1">
+    <input type="button" value="Shortcut" onClick="shorttri()" required><br>
+    Enter the base of the triangle:-
+    <input type="text" name="t1" required><br>
+    Enter the height of the triangle:- <input type="text" name="t2"><br>
+    <input type="button" value="Calculate-1" onClick="tri()"><br>
+    <input type="text" name="t3" onkeyup="trial()">
+    <hr>
+    <h3>Comparison of three numbers</h3>
+    Enter 1st number <br>
+    <input type="number" name="t4" value="1"><br>
+    Enter second number <br>
+    <input type="number" name="t5" value="2"><br>
+    Enter third <br>
+    <input type="number" name="t6" value="3"><br>
+    <input type="button" value="run" onclick="greater()">
+    <hr>
+    <h3>Odd or even</h3>
+    Enter a number <br>
+    <input type="number" name="t7"><br>
+    <input type="button" value="run" onclick="odev()">
+    <hr>
+    <h3>What is your Name?</h3>
+    <input type="text" name="t8"><br>
+    <input type="button" value="run" onclick="nam()">
+    <hr>
+    <h3>Check your total marks, grade and percentage here</h3>
+    <input type="button" value="Check" onClick="marks()">
+    <hr>
+    <h3>Calculator</h3>
+    Enter 1<sup>st</sup> number 
+    <input type="number" name="n1"><br>
+    Enter 2<sup>nd</sup> number 
+    <input type="number" name="n2">
+    <input type="button" value="+" onClick="add()">
+    <input type="button" value="-" onClick="sub()">
+    <input type="button" value="*" onClick="mul()">
+    <input type="button" value="/" onClick="div()"><br>
+Result: <input type="text" name="ans">
+  </form>
+  <h1 align="center">X<sup>2</sup> + 4X + 4 = (X+2)<sup>2</sup></h1>
+</body>
+
+</html>
