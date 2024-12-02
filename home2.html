@@ -42,7 +42,7 @@
       <img src="ship.png" class="ship" onclick="whi()">
       <img src="shiphover.gif" id="shiphov" onclick="whi()">
     <div id="which">
-      <div onclick="clwh()" style="position: relative; left: 18vh; color: red; font-size: 4vh; margin-bottom: -10px; width: 2%;">
+      <div onclick="clwh()" class="x">
         ×
       </div><br>
       Which planet would you like to visit?<br>
@@ -51,10 +51,15 @@
       <button onclick="window.location.href='home3.html'">Next</button>
     </div>
     </p>
-    <p id="spaceship2" onmousemove="travel2()" align="center">
-      <img src="ship.png" class="ship2">
+    <p id="spaceship2">
+      <img src="shiphover.gif" id="shiphovL" onclick="window.location.href='home1.html'">
+      <img src="ship.png" class="shipL">
     </p>
-    <div id="more">
+    <p id="spaceship3">
+      <img src="shiphover.gif" id="shiphovR" onclick="window.location.href='home3.html'">
+      <img src="ship.png" class="shipR">
+    </p>
+    <div id="more" class="moreopt">
       Home<br>
       <hr>
       About<br>

@@ -73,20 +73,15 @@
         }
       }
     });
-
     function cl() {
       document.getElementById("trig").style.display = "none";
+      document.getElementById("blur").style.display = "none";
+      document.getElementById("area").style.display = "none";
     }
-
     function trigop() {
-      if (document.getElementById("trig").style.display == "none") {
-        document.getElementById("trig").style.display = "block";
-      }
-      else {
-        document.getElementById("trig").style.display = "none";
-      }
+      document.getElementById("trig").style.display = "block";
+      document.getElementById("blur").style.display = "block";
     }
-
     function trig() {
       const d = document.getElementById("sin");
       const s = f1.s.value;
@@ -105,11 +100,10 @@
       const radt = t * (Math.PI / 180);
       var tv = Math.tan(radt);
       if (t == 90) {
-      var tv = 1 / 0;
+        var tv = 1 / 0;
       }
       d3.innerText = tv;
     }
-
     function trig2() {
       const d = document.getElementById("cosec");
       const cs = document.forms["f1"].elements["cs"].value;
@@ -128,22 +122,89 @@
       const radt = c * (Math.PI / 180);
       var cv = 1 / Math.tan(radt);
       if (c == 90) {
-      var cv = 0;
+        var cv = 0;
       }
       d3.innerText = cv;
     }
-
     function inv() {
       document.getElementById("sct").style.display = "none";
       document.getElementById("csc").style.display = "block";
     }
-
     function inv2() {
       document.getElementById("csc").style.display = "none";
       document.getElementById("sct").style.display = "block";
     }
+    function clr() {
+      document.getElementById("sin").innerText = "";
+      document.getElementById("sec").innerText = "";
+      document.getElementById("cos").innerText = "";
+      document.getElementById("tan").innerText = "";
+      document.getElementById("sec").innerText = "";
+      document.getElementById("cosec").innerText = "";
+      document.getElementById("cot").innerText = "";
+      document.getElementById("areatrig").innerText = "";
+      document.getElementById("arearect").innerText = "";
+      document.getElementById("areapent").innerText = "";
+      document.getElementById("areahex").innerText = "";
+      document.getElementById("areahep").innerText = "";
+      }
+    function areaop() {
+      document.getElementById("area").style.display = "block";
+      document.getElementById("blur").style.display = "block";
+    }
+    function areacal() {
+      var h, b, a;
+      h = f2.t1.value;
+      b = f2.t2.value;
+      a = 1 / 2 * b * h;
+      document.getElementById("areatrig").innerText = a + "(unit)²";
+      var le, bre, ar;
+      le = f2.r1.value;
+      bre = f2.r2.value;
+      ar = le * bre;
+      document.getElementById("arearect").innerText = ar + "(unit)²";
+      var ps = f2.p1.value;
+      var ap = 1.7205 * ps * ps;
+      document.getElementById("areapent").innerText = ap + "(unit)²"
+      var hs = f2.he1.value;
+      var ah = 2.59808 * hs * hs;
+      document.getElementById("areahex").innerText = ah + "(unit)²"
+      var hps = f2.hep1.value;
+      var ahp = 3.63391 * hps * hps;
+      document.getElementById("areahep").innerText = ahp + "(unit)²"    }
+    function anext() {
+      document.getElementById("triangle").style.display = "none";
+      document.getElementById("rectangle").style.display = "block";
+    }
+    function aprev() {
+      document.getElementById("triangle").style.display = "block";
+      document.getElementById("rectangle").style.display = "none";
+    }
+    function bnext() {
+      document.getElementById("rectangle").style.display = "none";
+      document.getElementById("pent").style.display = "block";
+    }
+    function bprev() {
+      document.getElementById("rectangle").style.display = "block";
+      document.getElementById("pent").style.display = "none";
+    }
+    function cnext() {
+      document.getElementById("pent").style.display = "none";
+      document.getElementById("hex").style.display = "block";
+    }
+    function cprev() {
+      document.getElementById("pent").style.display = "block";
+      document.getElementById("hex").style.display = "none";
+      }
+    function dnext() {
+      document.getElementById("hex").style.display = "none";
+      document.getElementById("hep").style.display = "block";
+    }
+    function dprev() {
+      document.getElementById("hex").style.display = "block";
+      document.getElementById("hep").style.display = "none";
+      }
   </script>
-
 </head>
 
 <body onload="cl()">
@@ -152,11 +213,9 @@
   <div class="scroll">
     <div class="mathcal" id="mc0" onclick="trigop()"><span class="text">Trigon<br>ometry</span>
     </div>
+    <div class="mathcal" id="mc1" onclick="areaop()"><span class="text">Area</span></div>
     <a href="">
-      <div class="mathcal" id="mc1"><span class="text">Second</span></div>
-    </a>
-    <a href="">
-      <div class="mathcal" id="mc2"><span class="text">Area</span></div>
+      <div class="mathcal" id="mc2"><span class="text">Third</span></div>
     </a>
     <a href="">
       <div class="mathcal" id="mc3"><span class="text">Peri-<br>meter</span></div>
@@ -168,26 +227,87 @@
   <div class="hills"></div>
   <div class="tree"></div>
   <div class="Sun"><img src="https://em-content.zobj.net/source/google/412/sun_2600-fe0f.png" width="20%" alt="☀️"></div>
-  <form id="trig" name="f1">
-    <aside onclick="cl()" class="x">×</aside>
-    <h3>Enter value of θ° and find values</h3>
-    <hr>
-    <section id="sct">
-      sin(<input type="number" name="s" value="0">°) = <div id="sin"></div><br>
-      cos(<input type="number" name="c" value="0">°) = <div id="cos"></div><br>
-      tan(<input type="number" name="t" value="0">°) = <div id="tan"></div><br>
-      <button onclick="inv()" type="button">Invert</button>
-      <button onclick="trig()" type="button">Check</button>
-    </section>
-    <section id="csc">
-      cosec(<input type="number" name="cs" value="0">°) = <div id="cosec"></div><br>
-      sec(<input type="number" name="sc" value="0">°) = <div id="sec"></div><br>
-      cot(<input type="number" name="ct" value="0">°) = <div id="cot"></div><br>
-      <button onclick="inv2()" type="button">Invert</button>
-      <button onclick="trig2()" type="button">Check</button>
-    </section>
-  </form>
-
+  <section id="blur">
+    <form id="trig" name="f1" class="trig">
+      <aside onclick="cl()" class="x">×</aside>
+      <h3>Enter value of θ° and find values</h3>
+      <hr>
+      <section id="sct">
+        sin(<input type="number" name="s" value="0">°) = <div id="sin"></div><br>
+        <aside onclick="inv()" class="nexttrig" id="rnt">›</aside>
+        cos(<input type="number" name="c" value="0">°) = <div id="cos"></div><br>
+        tan(<input type="number" name="t" value="0">°) = <div id="tan"></div><br>
+        <button onclick="trig()" type="button">Check</button>
+        <button type="reset" onclick="clr()">Clear</button>
+      </section>
+      <section id="csc">
+        cosec(<input type="number" name="cs" value="0">°) = <div id="cosec"></div><br>
+        <aside onclick="inv2()" class="nexttrig" id="lnt">
+          ‹ </aside>
+        sec(<input type="number" name="sc" value="0">°) = <div id="sec"></div><br>
+        cot(<input type="number" name="ct" value="0">°) = <div id="cot"></div><br>
+        <button onclick="trig2()" type="button">Check</button>
+        <button type="reset" onclick="clr()">Clear</button>
+      </section>
+    </form>
+    <form class="trig" name="f2" id="area">
+      <aside onclick="cl()" class="x">×</aside>
+      <h3>Area Calculators</h3>
+      <hr>
+      <section id="triangle">
+        <h4 align="center"> <u>1. Triangle</u></h4>
+        Enter value of height:
+        <input type="number" name="t1" onkeyup="areacal()"><br>
+        <aside onclick="anext()" class="nexttrig" id="anext">›</aside>
+        Enter value of base:
+        <input type="number" name="t2" onkeyup="areacal()"><br>
+        Calculated Area of the triangle:
+        <div id="areatrig"></div><br>
+        <button type="reset" onclick="clr()">Clear</button>
+      </section>
+      <section id="rectangle">
+        <h4 align="center"> <u>2. Rectangle/square</u></h4>
+        Enter value of length:
+        <input type="number" name="r1" onkeyup="areacal()"><br>
+        <aside onclick="aprev()" class="nexttrig" id="aprev">‹</aside>
+        <aside onclick="bnext()" class="nexttrig" id="anext">›</aside>
+        Enter value of breadth:
+        <input type="number" name="r2" onkeyup="areacal()"><br>
+        Calculated Area:
+        <div id="arearect"></div><br>
+        <button type="reset" onclick="clr()">Clear</button>
+      </section>
+      <section id="pent">
+        <h4 align="center"><u>3. Regular Pentagon</u></h4>
+        Enter value of a side =
+        <input type="number" name="p1" onkeyup="areacal()"><br>
+        <aside onclick="bprev()" class="nexttrig" id="aprev">‹</aside>
+        <aside onclick="cnext()" class="nexttrig" id="anext">›</aside>
+        Calculated Area =
+        <div id="areapent"></div><br>
+        <button type="reset" onclick="clr()">Clear</button>
+        </section>
+      <section id="hex">
+        <h4 align="center"><u>4. Regular Hexagon</u></h4>
+        Enter value of a side =
+        <input type="number" name="he1" onkeyup="areacal()"><br>
+        <aside onclick="cprev()" class="nexttrig" id="aprev">‹</aside>
+        <aside onclick="dnext()" class="nexttrig" id="anext">›</aside>
+        Calculated Area =
+        <div id="areahex"></div><br>
+        <button type="reset" onclick="clr()">Clear</button>
+      </section>
+      <section id="hep">
+        <h4 align="center"><u>5. Regular Heptagon</u></h4>
+        Enter value of a side =
+        <input type="number" name="hep1" onkeyup="areacal()"><br>
+        <aside onclick="dprev()" class="nexttrig" id="aprev">‹</aside>
+        Calculated Area =
+        <div id="areahep"></div><br>
+        <button type="reset" onclick="clr()">Clear</button>
+      </section>
+    </form>
+  </section>
 </body>
 
 </html>

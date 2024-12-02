@@ -179,11 +179,18 @@ body.loaded #world {
   #shiphovL {
     opacity: 0;
     rotate: 180deg;
-    margin-top: -150px;
+    position: absolute;
+    top: 50%;
+    left: 2vh;
+    transform: translate(0%, 50%);
   }
 
   #shiphovR {
     opacity: 0;
+    position: absolute;
+    top: 10%;
+    right: 2vh;
+    transform: translate(0%, -5%);
   }
 
   #spaceship2:hover .shipL {
@@ -303,7 +310,7 @@ header {
 .planetim:hover {
   box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.7);
   width: 85%;
-  left: 28%;
+  left: 50%;
 }
 
 /* .shiny-border {
@@ -441,7 +448,7 @@ header {
   right: 5%;
   width: 90%;
   height: 66vh;
-  clip-path: polygon(0% 100%, 100% 100%, 55% 0%, 45% 0%);
+  clip-path: polygon(0% 100%, 100% 100%, 51% 0%, 49% 0%);
   background: linear-gradient(to bottom, #3B3838, #666666, #555252);
 }
 
@@ -459,7 +466,7 @@ header {
 
 .tree {
   position: fixed;
-  top: 29vh;
+  top: 28.5vh;
   width: 100%;
   height: 7vh;
   background-size: 6vh;
@@ -511,7 +518,11 @@ header {
   font-size: 8vh;
   background: #363A62;
   overflow: hidden;
-  box-shadow: 1px 5px 7px #2C2D37;
+  box-shadow: 5px 9px 11px #2C2D37;
+  cursor: pointer;
+}
+.mathcal:hover{
+  background: #2E314B;
 }
 
 .scroll a {
@@ -537,7 +548,17 @@ header {
   height: 200%;
 }
 
-#trig {
+#blur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #636363BD;
+  display: none;
+}
+
+.trig {
   position: fixed;
   top: 10%;
   left: 10%;
@@ -553,24 +574,59 @@ header {
   color: #00FFED;
 }
 
-#trig h3 {
+.trig h3 {
   color: #FBFF00;
 }
+.trig h4{
+  color: red;
+  margin-top: -5px;
+  margin-bottom: -3px;
+}
 
-#trig input {
-  width: 50px;
+.trig input {
+  width: 60px;
   background: transparent;
   color: white;
   font-size: 20px;
   margin-bottom: 10px;
 }
-#trig div{
-  width: 100%;
+
+.trig div {
+  width: 80%;
   height: 20px;
   background: white;
   color: black;
   font-size: 20px;
+  justify-self: center;
+}
+#area{
+  display: none;
 }
 #csc {
+  display: none;
+}
+
+.nexttrig {
+  position: absolute;
+  margin-top: -16px;
+  display: flex;
+  align-self: center;
+  color: #3C00FF;
+  font-weight: bolder;
+  font-size: 5vh;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 3px;
+  background: #01A8FF;
+  border: 2px solid #6A6A6B;
+  border-radius: 10px;
+}
+#lnt{
+    left: 8px;
+}
+#rnt, #anext{
+    right: 8px;
+}
+#rectangle, #pent, #hex, #hep{
   display: none;
 }
