@@ -24,8 +24,10 @@
       h = f1.t2.value;
       c = 1 / 2 * b * h;
       f1.t3.value = c;
-      confirm("Do you want to see result?");
+      if(confirm("Do you want to see result?"))
       alert("The area of triangle with base " + b + " and with height " + h + " is " + c);
+      else
+      alert("Ok as you wish")
     }
 
     function trial() {

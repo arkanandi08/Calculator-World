@@ -77,6 +77,7 @@
       document.getElementById("trig").style.display = "none";
       document.getElementById("blur").style.display = "none";
       document.getElementById("area").style.display = "none";
+      document.getElementById("powandrt").style.display = "none";
     }
     function trigop() {
       document.getElementById("trig").style.display = "block";
@@ -173,11 +174,11 @@
       var ahp = 3.63391 * hps * hps;
       document.getElementById("areahep").innerText = ahp + "(unit)²"    }
     function anext() {
-      document.getElementById("triangle").style.display = "none";
+      document.getElementById("first").style.display = "none";
       document.getElementById("rectangle").style.display = "block";
     }
     function aprev() {
-      document.getElementById("triangle").style.display = "block";
+      document.getElementById("first").style.display = "block";
       document.getElementById("rectangle").style.display = "none";
     }
     function bnext() {
@@ -204,6 +205,10 @@
       document.getElementById("hex").style.display = "block";
       document.getElementById("hep").style.display = "none";
       }
+    function powrtop() {
+      document.getElementById("powandrt").style.display = "block";
+      document.getElementById("blur").style.display = "block";
+    }
   </script>
 </head>
 
@@ -214,9 +219,7 @@
     <div class="mathcal" id="mc0" onclick="trigop()"><span class="text">Trigon<br>ometry</span>
     </div>
     <div class="mathcal" id="mc1" onclick="areaop()"><span class="text">Area</span></div>
-    <a href="">
-      <div class="mathcal" id="mc2"><span class="text">Third</span></div>
-    </a>
+    <div class="mathcal" id="mc2" onclick="powrtop()"><span class="text">Power<br>and<br>Roots</span></div>
     <a href="">
       <div class="mathcal" id="mc3"><span class="text">Peri-<br>meter</span></div>
     </a>
@@ -228,7 +231,7 @@
   <div class="tree"></div>
   <div class="Sun"><img src="https://em-content.zobj.net/source/google/412/sun_2600-fe0f.png" width="20%" alt="☀️"></div>
   <section id="blur">
-    <form id="trig" name="f1" class="trig">
+    <form id="trig" name="f1" class="calscr">
       <aside onclick="cl()" class="x">×</aside>
       <h3>Enter value of θ° and find values</h3>
       <hr>
@@ -250,11 +253,11 @@
         <button type="reset" onclick="clr()">Clear</button>
       </section>
     </form>
-    <form class="trig" name="f2" id="area">
+    <form class="calscr" name="f2" id="area">
       <aside onclick="cl()" class="x">×</aside>
       <h3>Area Calculators</h3>
       <hr>
-      <section id="triangle">
+      <section id="first">
         <h4 align="center"> <u>1. Triangle</u></h4>
         Enter value of height:
         <input type="number" name="t1" onkeyup="areacal()"><br>
@@ -305,6 +308,15 @@
         Calculated Area =
         <div id="areahep"></div><br>
         <button type="reset" onclick="clr()">Clear</button>
+      </section>
+    </form>
+    <form class="calscr" name="f3" id="powandrt">
+      <aside onclick="cl()" class="x">×</aside>
+      <h3>Powers and Roots</h3>
+      <hr>
+      <section id="first">
+        <h4 align="center"> <u>1. Powers</u></h4>
+        <aside onclick="anext()" class="nexttrig" id="anext">›</aside>
       </section>
     </form>
   </section>
