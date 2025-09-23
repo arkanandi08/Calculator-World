@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NoteKarLo</title>
+  <link rel="stylesheet" href="st.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📝 NoteKarLo</h1>
+    
+    <div class="note-input">
+      <input type="text" id="title" placeholder="Note title" />
+      <textarea id="content" placeholder="Write your note here..."></textarea>
+      <button onclick="addNote()">Add Note</button>
+    </div>
+
+    <div class="notes" id="notes-container">
+      <!-- Notes will be shown here -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

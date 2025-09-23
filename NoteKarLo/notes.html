@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body onload="bod()">
+  <div id="cover"></div>
+  <header class="nhead">
+    <i class="fa fa-search" onclick="sear()"></i>
+    <i class="fa fa-ellipsis-v" id="tm" onclick="topt()"></i>
+  </header>
+  <div id="inp">
+    <input type="search" placeholder="Search notes" autofocus autocomplete name="s1" id="sear">
+    <div id="cancel" onclick="check()">Cancel</div>
+  </div>
+
+  <div id="topt"><div onclick="edit()">Edit</div>
+    <hr class="hr">Grid view<br>
+    <hr class="hr"> Settings <br>
+    <hr class="bighr">Sort by time created <br>
+    <hr class="hr">
+    <div class="active">Sort by time edited ✓</div>
+  </div>
+
+  <div class="nav" onclick="drop()">
+    All notes <i class="fa fa-sort-desc" id="arrow"></i>
+  </div>
+  <div id="drop">
+    <div id="done" onclick="drop()">Done</div>Notebooks
+  </div>
+    <div id="new" onclick="nnew()">+</div>
+    <form name="f1" id="f1">
+  <div onclick="check()" id="cross">×</div>
+  <div id="tick" onclick="addNote()">✓</div>
+
+  <input type="text" id="title" placeholder="Note title">
+  <textarea id="content" placeholder="Write your note here..."></textarea>
+</form>
+<pre id="bodyy"></pre>
+     <div id="notes-container" class="notes"></div>
+<p id="noNotesMsg" class="non">No notes yet...</p>
+  <footer>
+    <div class="nte">
+      <i class="fa fa-file-text" aria-hidden="true"></i><br>
+      Notes
+    </div>
+    <div class="todo" onclick="window.location.href='todo.html'">
+      <i class="fa fa-check-square-o" aria-hidden="true"></i><br>
+      To-dos
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+
+</html>
