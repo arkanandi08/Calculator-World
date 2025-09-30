@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="main.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home</title>
@@ -35,13 +36,22 @@
     <div id="done" onclick="drop()">Done</div>Notebooks
   </div>
     <div id="new" onclick="nnew()">+</div>
+    
     <form name="f1" id="f1">
-  <div onclick="check()" id="cross">×</div>
-  <div id="tick" onclick="addNote()">✓</div>
-
+  <div onclick="check()" class="cross">×</div>
+  <div class="tick" onclick="addNote()">✓</div>
   <input type="text" id="title" placeholder="Note title">
   <textarea id="content" placeholder="Write your note here..."></textarea>
+  
 </form>
+    <form name="f2" id="f2">
+  <div onclick="ccheck()" class="cross"><i class="fa fa-trash"></i></div>
+  <div class="tick" onclick="upNote()">✓</div>
+
+  <input type="text" id="ctitle" placeholder="Note title">
+  <textarea id="ccontent" placeholder="Write your note here..."></textarea>
+</form>
+
 <pre id="bodyy"></pre>
      <div id="notes-container" class="notes"></div>
 <p id="noNotesMsg" class="non">No notes yet...</p>
@@ -55,7 +65,6 @@
       To-dos
     </div>
   </footer>
-  <script src="main.js"></script>
 </body>
 
 </html>

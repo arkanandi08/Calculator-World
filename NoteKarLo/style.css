@@ -184,7 +184,7 @@ footer {
   margin-top: 20vh;
 }
 
-#f1 {
+#f1, #f2 {
   position: fixed;
   top: 0;
   right: 0;
@@ -195,7 +195,7 @@ footer {
   display: none;
 }
 
-#title {
+#title, #ctitle {
   background-color: transparent;
   position: fixed;
   left: 0;
@@ -208,7 +208,7 @@ footer {
   display: flex-flow;
 }
 
-#content {
+#content, #ccontent {
   background-color: transparent;
   position: fixed;
   left: 0;
@@ -227,14 +227,14 @@ footer {
 
 }
 
-#tick {
+.tick {
   position: fixed;
   top: 1vh;
   right: 3vh;
   font-size: 5vh;
 }
 
-#cross {
+.cross {
   position: fixed;
   top: 1vh;
   left: 3vh;
@@ -260,7 +260,7 @@ footer {
   font-size: 2vh;
 }
 
-#bn {
+.bn {
   color: grey;
   font-size: 2vh;
   text-align: right;
@@ -270,9 +270,7 @@ footer {
   right: 5px;
   bottom: 5px;
 }
-#nn{
+.nn{
   color: grey;
   font-size: 3vh;
-  position: relative;
-  bottom: 3vh;
 }
