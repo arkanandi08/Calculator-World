@@ -12,26 +12,29 @@ header {
   width: 100%;
   position: fixed;
   text-align: right;
-  top: 5%;
+  top: 2%;
+  right: 1vh;
   font-size: 3vh;
-  z-index: 1;
+  z-index: 2;
 }
 
-header i{
+header i {
   cursor: pointer;
   padding: 2vh;
-  margin-right: 3vh;
   text-align: center;
   width: 3vh;
   height: 3vh;
+  border-radius: 50%;
 }
-header i:hover{
-background: radial-gradient(circle, #525252, #525252CF, #52525296, transparent);
-border-radius: 50%;
+
+header i:hover {
+  background: radial-gradient(circle, #525252, #525252CF, #52525296, transparent);
 }
 
 #tm {
   width: 3vh;
+  position: relative;
+  right: 1vh;
 }
 
 #topt {
@@ -39,13 +42,14 @@ border-radius: 50%;
   position: fixed;
   right: 2vh;
   background-color: #3F3F3F;
-  top: 10%;
+  top: 13%;
   border-radius: 7%;
   padding: 3vh;
   font-size: 2.5vh;
-  z-index: 1;
+  z-index: 2;
 }
-#topt div{
+
+#topt div {
   cursor: pointer;
 }
 
@@ -77,7 +81,11 @@ border-radius: 50%;
   position: relative;
   bottom: 2vh;
 }
-
+#count{
+  font-size: 2.5vh;
+  color: grey;
+  margin-top: 1vh;
+}
 #drop {
   display: none;
   position: fixed;
@@ -105,18 +113,29 @@ border-radius: 50%;
   padding-left: 2vh;
   padding-right: 2vh;
   cursor: pointer;
-}
-#done:hover {
-  background: radial-gradient(ellipse at center, #525252, #525252CF, #52525296, transparent);
   border-radius: 3vh;
 }
+
+#done:hover {
+  background: radial-gradient(ellipse at center, #525252, #525252CF, #52525296, transparent);
+}
+
 .nav {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  font-size: 5.2vh;
+  position: relative;
+  top: 10vh;
+  margin-left: 5%;
+  font-size: 5vh;
   font-weight: 500;
   cursor: pointer;
+  z-index: 2;
+}
+
+#sticky{
+    background: #000000;
+    position: sticky;
+    top: -7vh;
+    height: 22vh;
+    z-index: 1;
 }
 
 footer {
@@ -127,7 +146,11 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  font-size: 3vh;
+  font-size: 1.6vh;
+  line-height: 1.9;
+}
+.nte i, .todo i{
+  font-size: 4vh;
 }
 
 .nte {
@@ -178,8 +201,19 @@ footer {
   display: none;
 }
 
+#toptcov {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: none;
+}
+
+
 #new {
-  background-color: #E1A02F;
+  background-color: #FFBE4D;
   color: #FFFFFF;
   justify-content: center;
   align-items: center;
@@ -190,33 +224,38 @@ footer {
   height: 8vh;
   width: 8vh;
   position: fixed;
-  bottom: 15vh;
+  bottom: 14vh;
   right: 5%;
   z-index: 1;
   cursor: pointer;
 }
-#new:hover{
+
+#new:hover {
   height: 7vh;
   width: 7vh;
   font-size: 6vh;
-  bottom: 16vh;
-  right: 6%;
+  bottom: 15vh;
+  right: 5.7%;
 }
+
 .note {
   position: relative;
   font-size: 3vh;
-  margin-top: 3vh;
+  margin-top: 2vh;
   background-color: #1E1E1E;
   padding: 2vh;
   border-radius: 2vh;
   cursor: pointer;
+  margin-right: 1vh;
+  margin-left: 1vh;
 }
 
 .notes {
-  margin-top: 20vh;
+  margin-bottom: 15vh;
 }
 
-#f1, #f2 {
+#f1,
+#f2 {
   position: fixed;
   top: 0;
   right: 0;
@@ -227,7 +266,8 @@ footer {
   display: none;
 }
 
-#title, #ctitle {
+#title,
+#ctitle {
   background-color: transparent;
   position: fixed;
   left: 2vh;
@@ -240,7 +280,8 @@ footer {
   display: flex-flow;
 }
 
-#content, #ccontent {
+#content,
+#ccontent {
   background-color: transparent;
   position: fixed;
   left: 2vh;
@@ -256,7 +297,7 @@ footer {
 
 #ihead {
   background-color: #000000;
-
+  
 }
 
 .tick {
@@ -291,7 +332,6 @@ footer {
   padding: 4px 8px;
   border-radius: 4px;
   display: none;
-  font-size: 2vh;
   cursor: pointer;
 }
 
@@ -299,13 +339,23 @@ footer {
   color: grey;
   font-size: 2vh;
   text-align: right;
-  margin-top: 10px;
   display: flex;
   position: absolute;
   right: 5px;
   bottom: 5px;
 }
-.nn{
+
+.nn {
   color: grey;
-  font-size: 3vh;
+  font-size: 2.5vh;
+  position: absolute;
+  right: 2vh;
+}
+.hn{
+  margin-top: 0vh;
+}
+.cn {
+  margin-top: -3vh;
+  color: #B0B0B0;
+  font-size: 2.5vh;
 }

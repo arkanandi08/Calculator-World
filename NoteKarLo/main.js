@@ -19,6 +19,7 @@ function edit() {
     }
   }
   document.getElementById("topt").style.display = "none";
+  document.getElementById("cover").style.display = "none";
 }
 
 function check() {
@@ -26,8 +27,12 @@ function check() {
   document.getElementById("drop").style.display = "none";
   document.getElementById("inp").style.display = "none";
   document.getElementById("cover").style.display = "none";
+  document.getElementById("toptcov").style.display = "none";
   document.getElementById("f1").style.display = "none";
   document.getElementById("f2").style.display = "none";
+    document.getElementById("hed").style.display= "block";
+  if(document.getElementById("arrow").style.rotate = "180deg"){
+    document.getElementById("arrow").style.rotate = "0deg";}
 }
 
 function drop() {
@@ -47,14 +52,17 @@ function topt() {
   let el = document.getElementById("topt");
   if (el.style.display === "none") {
     el.style.display = "block";
+    document.getElementById("toptcov").style.display = "block";
   } else {
     el.style.display = "none";
+    document.getElementById("toptcov").style.display = "none";
   }
 }
 
 function sear() {
   document.getElementById("inp").style.display = "block";
   document.getElementById("cover").style.display = "block";
+  document.getElementById("hed").style.display= "none";
 }
 
 function nnew() {
@@ -124,6 +132,7 @@ function displayNotes() {
     noteDiv.appendChild(delBtn);
     container.appendChild(noteDiv);
   });
+  document.getElementById("count").innerText=notes.length+" notes";
 }
 
 function refresh() {

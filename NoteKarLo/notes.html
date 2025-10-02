@@ -12,10 +12,11 @@
 </head>
 
 <body onload="bod()">
-  <div id="cover"></div>
-  <header>
+  <div id="cover" onclick="check()"></div>
+  <header id="hed">
     <i class="fa fa-search" onclick="sear()"></i>
-    <i class="fa fa-ellipsis-v" onclick="topt()"></i>
+    <i class="fa fa-ellipsis-v" onclick="topt()" id="tm"></i>
+    <div id="toptcov" onclick="check()"></div>
   </header>
   <div id="inp">
     <input type="search" placeholder="Search notes" autofocus autocomplete name="s1" id="sear">
@@ -29,10 +30,12 @@
     <hr class="hr">
     <div class="active">Sort by time edited ✓</div>
   </div>
-
+<div id="sticky">
   <div class="nav" onclick="drop()">
-    All notes <i class="fa fa-sort-desc" id="arrow"></i>
+    All notes <i class="fa fa-sort-desc" id="arrow"></i><br>
+    <div id="count"></div>
   </div>
+</div>
   <div id="drop">
     <div id="done" onclick="drop()">Done</div>Notebooks
   </div>
