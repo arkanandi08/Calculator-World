@@ -40,11 +40,13 @@ function drop() {
     document.getElementById("drop").style.display = "block";
     document.getElementById("arrow").style.rotate = "180deg";
     document.getElementById("cover").style.display = "block";
+    document.getElementById("hed").style.display= "none";
   }
   else {
     document.getElementById("drop").style.display = "none";
     document.getElementById("arrow").style.rotate = "0deg";
     document.getElementById("cover").style.display = "none";
+    document.getElementById("hed").style.display= "block";
   }
 }
 

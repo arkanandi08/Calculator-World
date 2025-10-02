@@ -1,10 +1,11 @@
 * {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 body {
   background-color: #000000;
   color: #FFFFFF;
+  font-family: sans-serif;
 }
 
 header {
@@ -121,14 +122,19 @@ header i:hover {
 }
 
 .nav {
-  position: relative;
-  top: 10vh;
-  margin-left: 5%;
   font-size: 5vh;
   font-weight: 500;
   cursor: pointer;
   z-index: 2;
+  display: inline-block;
 }
+
+.hnav {
+  position: relative;
+  top: 10vh;
+  margin-left: 5%;
+}
+
 
 #sticky{
     background: #000000;
@@ -146,7 +152,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  font-size: 1.6vh;
+  font-size: 2vh;
   line-height: 1.9;
 }
 .nte i, .todo i{
@@ -213,7 +219,7 @@ footer {
 
 
 #new {
-  background-color: #FFBE4D;
+  background-color: #FFB22D;
   color: #FFFFFF;
   justify-content: center;
   align-items: center;
@@ -249,6 +255,9 @@ footer {
   margin-right: 1vh;
   margin-left: 1vh;
 }
+.note:hover{
+  background-color: #4B4B4B;
+}
 
 .notes {
   margin-bottom: 15vh;
@@ -278,6 +287,7 @@ footer {
   outline: none;
   top: 9vh;
   display: flex-flow;
+  font-family: poppins;
 }
 
 #content,
@@ -293,6 +303,7 @@ footer {
   top: 18vh;
   display: flex-flow;
   height: 100%;
+  font-family: roboto;
 }
 
 #ihead {
@@ -319,7 +330,8 @@ footer {
 .non {
   color: gray;
   text-align: center;
-  margin-top: 60%;
+  margin-top: 40%;
+  font-size: 3vh;
 }
 
 .delnote {
@@ -341,7 +353,7 @@ footer {
   text-align: right;
   display: flex;
   position: absolute;
-  right: 5px;
+  right: 7px;
   bottom: 5px;
 }
 
@@ -353,9 +365,11 @@ footer {
 }
 .hn{
   margin-top: 0vh;
+  font-family: poppins;
 }
 .cn {
-  margin-top: -3vh;
+  margin-top: -2.5vh;
   color: #B0B0B0;
   font-size: 2.5vh;
+  font-family: roboto;
 }
