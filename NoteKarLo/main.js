@@ -197,3 +197,20 @@ function ccheck(){
   refresh()
   }
 }
+
+
+
+    async function showNotification() {
+      try {
+        if (Notification.permission === "granted") {
+          new Notification("Hey Arka!", { body: "Notification working bhai ✅" });
+        } else if (Notification.permission !== "denied") {
+          const permission = await Notification.requestPermission();
+          if (permission === "granted") {
+            new Notification("Hey Arka!", { body: "Ab toh chal gaya 🔥" });
+          }
+        }
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    }
