@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notification Test</title>
+</head>
+<body>
+  <button onclick="showNotification()">Show Notification</button>
+
+  <script>
+    function showNotification() {
+      // Check if notifications are supported
+      if (!("Notification" in window)) {
+        alert("Browser notifications not supported!");
+        return;
+      }
+
+      // Ask for permission if not already granted
+      if (Notification.permission === "granted") {
+        new Notification("Hey Arka!", { body: "JCB mission time ⏰ - stay focused bhai!" });
+      } 
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+          if (permission === "granted") {
+            new Notification("Hey Arka!", { body: "JCB mission time ⏰ - stay focused bhai!" });
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
