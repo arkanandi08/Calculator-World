@@ -38,17 +38,35 @@
   </div>
 </div>
   <div id="drop">
-    <div id="done" onclick="drop()">Done</div>Notebooks
-    <button onclick="showNotification()">Show Notification</button>
+    <div class="done" onclick="drop()">Done</div>Notebooks
   </div>
     <div id="new" onclick="nnew()">+</div>
     
     <form name="f1" id="f1">
   <div onclick="check()" class="cross">×</div>
+  <div id="more" onclick="mopt()">&#8942;</div>
+  <div id="mopt"><div onclick="time()">Set Reminder</div></div>
   <div class="tick" onclick="addNote()">✓</div>
   <input type="text" id="title" placeholder="Note title">
   <textarea id="content" placeholder="Write your note here..."></textarea>
-  
+  <div id="time"><div class="done">Cancel</div>&nbsp;&nbsp;Schedule Reminder <br><br><div id="tmsave">Save</div>
+  <form name="f2">
+  <input type="button" onclick="window.setTimeout(showNotification,5000)" value="5sec">
+  <input type="button" onclick="window.setTimeout(showNotification,10000)" value="10sec"><br>
+  <input type="button" onclick="window.setTimeout(showNotification,15000)" value="15sec">
+  <input type="button" onclick="window.setTimeout(showNotification,30000)" value="30sec"><br>
+  <input type="button" onclick="window.setTimeout(showNotification,60000)" value="1min">
+  <input type="button" onclick="window.setTimeout(showNotification,900000)" value="15min"><br>
+  <input type="button" onclick="window.setTimeout(showNotification,1800000)" value="30min">
+  <input type="button" onclick="window.setTimeout(showNotification,3600000)" value="1hour"><br>
+  <input type="button" onclick="window.setTimeout(showNotification,7200000)" value="2hour">
+  <input type="button" onclick="document.getElementById('custm').style.display='block';" value="Custom">
+  <div id="custm">
+  <input type="time" id="tmp">
+  <input type="button" onclick="tmset()" value="Set Time">
+  </div>
+  </form>
+</div>
 </form>
     <form name="f2" id="f2">
   <div onclick="ccheck()" class="cross"><i class="fa fa-trash"></i></div>
