@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Notification Test</title>
+  <title>NoteKarLo - Notification Test</title>
 </head>
 <body>
+  <h2>Click below to test notification 👇</h2>
   <button onclick="showNotification()">Show Notification</button>
 
   <script>
-    function showNotification() {
-      // Check if notifications are supported
-      if (!("Notification" in window)) {
-        alert("Browser notifications not supported!");
-        return;
-      }
-
-      // Ask for permission if not already granted
-      if (Notification.permission === "granted") {
-        new Notification("Hey Arka!", { body: "JCB mission time ⏰ - stay focused bhai!" });
-      } 
-      else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(permission => {
+    async function showNotification() {
+      try {
+        if (Notification.permission === "granted") {
+          new Notification("Hey Arka!", { body: "Notification working bhai ✅" });
+        } else if (Notification.permission !== "denied") {
+          const permission = await Notification.requestPermission();
           if (permission === "granted") {
-            new Notification("Hey Arka!", { body: "JCB mission time ⏰ - stay focused bhai!" });
+            new Notification("Hey Arka!", { body: "Ab toh chal gaya 🔥" });
           }
-        });
+        }
+      } catch (err) {
+        console.error("Error:", err);
       }
     }
   </script>
