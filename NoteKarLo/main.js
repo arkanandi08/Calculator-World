@@ -19,13 +19,11 @@ function edit() {
     }
   }
   document.getElementById("topt").style.display = "none";
-  document.getElementById("mopt").style.display = "none";
   document.getElementById("cover").style.display = "none";
 }
 
 function check() {
   document.getElementById("topt").style.display = "none";
-  document.getElementById("mopt").style.display = "none";
   document.getElementById("drop").style.display = "none";
   document.getElementById("inp").style.display = "none";
   document.getElementById("cover").style.display = "none";
@@ -204,58 +202,3 @@ function ccheck(){
   refresh();
   }
 }
-function mopt() {
-  let el = document.getElementById("mopt");
-  if (el.style.display === "none") {
-    el.style.display = "block";
-  } else {
-    el.style.display = "none";
-  }
-}
-function time(){
-  document.getElementById("time").style.display = "block";
-}
-function tmset(){
-  let time = document.getElementById("tmp").value;
-  let now = new Date();
-  var phr = now.getHours();
-  var pmn = now.getMinutes();
-  var hr = time.charAt(0)+time.charAt(1);
-  var min = time.charAt(3)+time.charAt(4);
-  var hour = hr-phr;
-  var minute = min-pmn;
-  var tm = hour*3600000+minute*60000;
-  if (tm<=0) {
-    alert(time+" has been passed away!!")
-  }
-  else {
-    var a=document.getElementById("ctitle").value;
-    var b=document.getElementById("title").value;
-    if (b=="") {
-      window.setTimeout("showNotification(a)",tm);
-    }
-    else if (a=="") {
-      window.setTimeout("showNotification(b)",tm);
-    }
-    else {
-      alert("Something Went Wrong..")
-    }
-    document.getElementById("time").style.display = "none";
-  }
-}
-
-
-    async function showNotification(tit) {
-      try {
-        if (Notification.permission === "granted") {
-          new Notification(tit, { body: "Its Time Up remainder!! ✅" });
-        } else if (Notification.permission !== "denied") {
-          const permission = await Notification.requestPermission();
-          if (permission === "granted") {
-            new Notification("Hey Arka!", { body: "Ab toh chal gaya 🔥" });
-          }
-        }
-      } catch (err) {
-        console.error("Error:", err);
-      }
-    }

@@ -372,64 +372,20 @@ footer {
   font-size: 2.5vh;
   font-family: roboto;
 }
-#more{
-  position: fixed;
-  top: 0;
-  right: 12vh;
-  font-size: 6vh;
-  font-weight: 100;
-  cursor: pointer;
-}
 
-#mopt {
-  display: none;
-  position: fixed;
-  right: 2vh;
-  background-color: #3F3F3F;
-  top: 13%;
-  border-radius: 7%;
-  padding: 3vh;
-  font-size: 2.5vh;
-  z-index: 2;
-}
-
-#mopt div {
-  cursor: pointer;
-}
-
-#time {
-  display: none;
-  position: fixed;
-  top: 11vh;
+#timer{
+  position: absolute;
+  top: 20vh;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: #2A2A2A;
+  font-size: 5vh;
   text-align: center;
+}
+#timer input{
+  background-color: transparent;
   color: #FFFFFF;
-  font-size: 3vh;
-  z-index: 2;
-  border-radius: 4vh 4vh 0 0;
-  padding: 3vh;
-}
-
-#tmsave {
-  color: #FFAF00;
-  position: absolute;
-  right: 2vh;
-  top: 3vh;
-  font-size: 3vh;
-  z-index: 2;
-  padding: 1vh;
-  padding-left: 2vh;
-  padding-right: 2vh;
-  cursor: pointer;
-  border-radius: 3vh;
-}
-
-#tmsave:hover {
-  background: radial-gradient(ellipse at center, #525252, #525252CF, #52525296, transparent);
-}
-#custm{
-  display: none;
+  outline: none;
+  display: flex-flow;
+  font-size: 3.6vh;
+  font-family: poppins;
 }
