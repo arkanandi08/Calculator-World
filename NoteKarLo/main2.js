@@ -1,5 +1,6 @@
 function check(){
   document.getElementById("topt").style.display="none";
+  document.getElementById("trgt").focus();
 }
 function topt() {
   if (document.getElementById("topt").style.display == "none") {

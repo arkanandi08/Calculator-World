@@ -388,4 +388,5 @@ footer {
   display: flex-flow;
   font-size: 3.6vh;
   font-family: poppins;
+  cursor: pointer;
 }
