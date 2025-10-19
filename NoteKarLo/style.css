@@ -390,3 +390,6 @@ footer {
   font-family: poppins;
   cursor: pointer;
 }
+#custm{
+  display: none;
+}

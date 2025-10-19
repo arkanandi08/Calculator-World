@@ -1,5 +1,6 @@
 function check(){
   document.getElementById("topt").style.display="none";
+  document.getElementById("custm").style.display="none";
   document.getElementById("trgt").focus();
 }
 function topt() {
@@ -47,4 +48,13 @@ function tmset(){
       } catch (err) {
         console.error("Error:", err);
       }
+    }
+    
+    function custm(){
+   let el = document.getElementById("custm");
+  if (el.style.display === "none") {
+    el.style.display = "block";
+  } else {
+    el.style.display = "none";
+  }
     }
