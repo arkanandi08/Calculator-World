@@ -22,27 +22,29 @@
     <div id="count"></div>
   </div>
   
-  
+  <div id="block"><h1>Waiting For Notification!!</h1><hr><br><h2>You will Receive the Notification at <div id="notat"></div></h2><br>
+  Don't Refresh Or Close This Page Otherwise you will not receive any notification.
+  </div>
   <form name="tf" id="timer">
     <div class="tt">Today's Targets 🎯</div><hr>
     <input type="text" id="trgt" placeholder="Write your target here..."><br><br>
-  <input type="button" onclick="window.setTimeout(showNotification,5000)" value="5sec">
-  <input type="button" onclick="window.setTimeout(showNotification,10000)" value="10sec"><br>
-  <input type="button" onclick="window.setTimeout(showNotification,15000)" value="15sec">
-  <input type="button" onclick="window.setTimeout(showNotification,30000)" value="30sec"><br>
-  <input type="button" onclick="window.setTimeout(showNotification,60000)" value="1min">
-  <input type="button" onclick="window.setTimeout(showNotification,900000)" value="15min"><br>
-  <input type="button" onclick="window.setTimeout(showNotification,1800000)" value="30min">
-  <input type="button" onclick="window.setTimeout(showNotification,3600000)" value="1hour"><br>
-  <input type="button" onclick="window.setTimeout(showNotification,7200000)" value="2hour">
-  <input type="button" onclick="custm()" value="Custom">
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,5000)" value="5sec">
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,10000)" value="10sec"><br>
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,15000)" value="15sec">
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,30000)" value="30sec"><br>
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,60000)" value="1min">
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,900000)" value="15min"><br>
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,1800000)" value="30min">
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,3600000)" value="1hour"><br>
+  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,7200000)" value="2hour">
+  <input type="button" class="tmbut" onclick="custm()" value="Custom">
   <div id="custm">
   <input type="time" id="tmp">
-  <input type="button" onclick="tmset()" value="Set Time">
+  <input type="button" class="tmbut" onclick="tmset()" value="Set Time">
   </div>
   </form>
   <footer>
-    <div class="nte" onclick="window.location.href='notes.html'">
+    <div class="nte" onclick="document.getElementById('block').style.display='block'; window.location.href='notes.html'">
       <i class="fa fa-file-text-o" aria-hidden="true"></i><br>
       Notes
     </div>

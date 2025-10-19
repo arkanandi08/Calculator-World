@@ -30,11 +30,14 @@ function tmset(){
   }
   else {
       window.setTimeout(showNotification,tm);
+      document.getElementById("block").style.display="block";
+      document.getElementById("notat").innerText=time;
   }
 }
 
 
     async function showNotification() {
+      document.getElementById("block").style.display="none";
       try {
         if (Notification.permission === "granted") {
           let a=document.getElementById("trgt").value;

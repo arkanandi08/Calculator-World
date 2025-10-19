@@ -380,6 +380,7 @@ footer {
   right: 0;
   font-size: 5vh;
   text-align: center;
+  height: 130vh;
 }
 #timer input{
   background-color: transparent;
@@ -392,4 +393,20 @@ footer {
 }
 #custm{
   display: none;
+}
+#block{
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000;
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 2;
+  padding: 2vh;
+}
+#block h1{
+  margin-top: 50%;
 }
