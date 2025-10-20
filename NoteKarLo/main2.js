@@ -34,7 +34,29 @@ function tmset(){
       document.getElementById("notat").innerText=time;
   }
 }
-
+function tim(s){
+  document.getElementById('block').style.display='block';
+  window.setTimeout(showNotification,s);
+  let now = new Date();
+  var phr = now.getHours();
+  var pmn = now.getMinutes();
+  var ps = now.getSeconds();
+  var sec = s/1000+ps;
+  if (s%60==0) {
+    pmn = Math.floor(pmn+(sec/60));
+    sec = ps;
+  }
+  if (pmn>=60) {
+   var b = Math.floor(phr+(pmn/60));
+   pmn = pmn-(b-phr)*60;
+   phr = b;
+  }
+  if (phr>=24) {
+    phr = phr-24;
+  }
+    var time = phr+":"+pmn+":"+sec;
+  document.getElementById("notat").innerText=time;
+}
 
     async function showNotification() {
       document.getElementById("block").style.display="none";

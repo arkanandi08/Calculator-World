@@ -28,15 +28,15 @@
   <form name="tf" id="timer">
     <div class="tt">Today's Targets 🎯</div><hr>
     <input type="text" id="trgt" placeholder="Write your target here..."><br><br>
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,5000)" value="5sec">
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,10000)" value="10sec"><br>
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,15000)" value="15sec">
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,30000)" value="30sec"><br>
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,60000)" value="1min">
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,900000)" value="15min"><br>
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,1800000)" value="30min">
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,3600000)" value="1hour"><br>
-  <input type="button" class="tmbut" onclick="document.getElementById('block').style.display='block'; window.setTimeout(showNotification,7200000)" value="2hour">
+  <input type="button" class="tmbut" onclick="tim(5000)" value="5sec">
+  <input type="button" class="tmbut" onclick="tim(10000)" value="10sec"><br>
+  <input type="button" class="tmbut" onclick="tim(15000)" value="15sec">
+  <input type="button" class="tmbut" onclick="tim(30000)" value="30sec"><br>
+  <input type="button" class="tmbut" onclick="tim(60000)" value="1min">
+  <input type="button" class="tmbut" onclick="tim(900000)" value="15min"><br>
+  <input type="button" class="tmbut" onclick="tim(1800000)" value="30min">
+  <input type="button" class="tmbut" onclick="tim(3600000)" value="1hour"><br>
+  <input type="button" class="tmbut" onclick="tim(7200000)" value="2hour">
   <input type="button" class="tmbut" onclick="custm()" value="Custom">
   <div id="custm">
   <input type="time" id="tmp">
