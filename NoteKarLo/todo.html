@@ -11,37 +11,48 @@
 </head>
 
 <body onload="check()">
-  <header class="nhead">
+  <div id="cover" onclick="check()"></div>
+  <header id="hed">
     <i class="fa fa-ellipsis-v" id="tm" onclick="topt()"></i>
   </header>
-  <div id="topt">Edit<br><hr class="hr">Hide completed<br><hr class="hr"> Settings</div>
+  <div id="topt">Edit<br>
+    <hr class="hr">Hide completed<br>
+    <hr class="hr"> Settings
+  </div>
   
-    <div class="hnav">
+  <div class="hnav">
     <div class="nav">
-    To-dos</div><br>
+      Today's Targets 🎯</div><br>
     <div id="count"></div>
   </div>
   
-  <div id="block"><h1>Waiting For Notification!!</h1><hr><br><h2>You will Receive the Notification at <div id="notat"></div></h2><br>
-  Don't Refresh Or Close This Page Otherwise you will not receive any notification.
+  <div id="block">
+    <h1>Waiting For Notification!!</h1>
+    <hr><br>
+    <h2>You will Receive the Notification at <div id="notat"></div>
+    </h2><br>
+    Don't Refresh Or Close This Page Otherwise you will not receive any notification.
   </div>
   <form name="tf" id="timer">
-    <div class="tt">Today's Targets 🎯</div><hr>
-    <input type="text" id="trgt" placeholder="Write your target here..."><br><br>
-  <input type="button" class="tmbut" onclick="tim(5000)" value="5sec">
-  <input type="button" class="tmbut" onclick="tim(10000)" value="10sec"><br>
-  <input type="button" class="tmbut" onclick="tim(15000)" value="15sec">
-  <input type="button" class="tmbut" onclick="tim(30000)" value="30sec"><br>
-  <input type="button" class="tmbut" onclick="tim(60000)" value="1min">
-  <input type="button" class="tmbut" onclick="tim(900000)" value="15min"><br>
-  <input type="button" class="tmbut" onclick="tim(1800000)" value="30min">
-  <input type="button" class="tmbut" onclick="tim(3600000)" value="1hour"><br>
-  <input type="button" class="tmbut" onclick="tim(7200000)" value="2hour">
-  <input type="button" class="tmbut" onclick="custm()" value="Custom">
-  <div id="custm">
-  <input type="time" id="tmp">
-  <input type="button" class="tmbut" onclick="tmset()" value="Set Time">
-  </div>
+    <input type="text" id="trgt" placeholder="Write your target here..."><br><br>Set Time For Your Target <br><br>
+    <div id="but">
+      <input type="button" class="tmbut" onclick="tim(5000)" value="5sec">
+      <input type="button" class="tmbut" onclick="tim(10000)" value="10sec">
+      <input type="button" class="tmbut" onclick="tim(15000)" value="15sec">
+      <input type="button" class="tmbut" onclick="tim(30000)" value="30sec">
+      <input type="button" class="tmbut" onclick="tim(60000)" value="1min">
+      <input type="button" class="tmbut" onclick="tim(900000)" value="15min">
+      <input type="button" class="tmbut" onclick="tim(1800000)" value="30min">
+      <input type="button" class="tmbut" onclick="tim(3600000)" value="1hour">
+      <input type="button" class="tmbut" onclick="tim(7200000)" value="2hour">
+      <input type="button" class="tmbut" onclick="drop()" value="Custom">
+    </div>
+    <br><br>
+    <div id="drop">
+      <div class="done" onclick="drop()">Cancel</div><br><br><br>
+      <input type="time" id="tmp"><br><br>
+      <input type="button" class="tmbut" onclick="tmset()" value="Set Time">
+    </div>
   </form>
   <footer>
     <div class="nte" onclick="document.getElementById('block').style.display='block'; window.location.href='notes.html'">

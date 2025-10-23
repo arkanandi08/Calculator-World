@@ -1,8 +1,11 @@
-function check(){
-  document.getElementById("topt").style.display="none";
-  document.getElementById("custm").style.display="none";
+function check() {
+  document.getElementById("topt").style.display = "none";
+  document.getElementById("drop").style.display = "none";
   document.getElementById("trgt").focus();
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("hed").style.display = "block";
 }
+
 function topt() {
   if (document.getElementById("topt").style.display == "none") {
     document.getElementById("topt").style.display = "block";
@@ -11,75 +14,87 @@ function topt() {
     document.getElementById("topt").style.display = "none";
   }
 }
-function create() {
-  document.getElementById("f2").style.display="block";
+
+function drop() {
+  if (document.getElementById("drop").style.display == "none") {
+    document.getElementById("drop").style.display = "block";
+    document.getElementById("cover").style.display = "block";
+    document.getElementById("hed").style.display = "none";
+  }
+  else {
+    document.getElementById("'drop").style.display = "none";
+    document.getElementById("cover").style.display = "none";
+    document.getElementById("hed").style.display = "block";
+  }
 }
 
-function tmset(){
+function create() {
+  document.getElementById("f2").style.display = "block";
+}
+
+function tmset() {
   let time = document.getElementById("tmp").value;
   let now = new Date();
   var phr = now.getHours();
   var pmn = now.getMinutes();
-  var hr = time.charAt(0)+time.charAt(1);
-  var min = time.charAt(3)+time.charAt(4);
-  var hour = hr-phr;
-  var minute = min-pmn;
-  var tm = hour*3600000+minute*60000;
-  if (tm<=0) {
-    alert(time+" has been passed away!!")
+  var ps = now.getSeconds();
+  var hr = time.charAt(0) + time.charAt(1);
+  var min = time.charAt(3) + time.charAt(4);
+  var hour = hr - phr;
+  var minute = min - pmn;
+  var tm = hour * 3600000 + minute * 60000;
+  var ftm = time+":"+ps;
+  if (time == "") {
+    alert("Please Set a Time!!");
+  }
+  else if (tm <= 0) {
+    alert(time + " has been passed away!!")
   }
   else {
-      window.setTimeout(showNotification,tm);
-      document.getElementById("block").style.display="block";
-      document.getElementById("notat").innerText=time;
+    window.setTimeout(showNotification, tm);
+    document.getElementById("drop").style.display = "none";
+    document.getElementById("block").style.display = "block";
+    document.getElementById("notat").innerText = ftm;
   }
 }
-function tim(s){
-  document.getElementById('block').style.display='block';
-  window.setTimeout(showNotification,s);
+
+function tim(s) {
+  document.getElementById('block').style.display = 'block';
+  window.setTimeout(showNotification, s);
   let now = new Date();
   var phr = now.getHours();
   var pmn = now.getMinutes();
   var ps = now.getSeconds();
-  var sec = s/1000+ps;
-  if (s%60==0) {
-    pmn = Math.floor(pmn+(sec/60));
+  var sec = s / 1000 + ps;
+  if (s % 60 == 0) {
+    pmn = Math.floor(pmn + (sec / 60));
     sec = ps;
   }
-  if (pmn>=60) {
-   var b = Math.floor(phr+(pmn/60));
-   pmn = pmn-(b-phr)*60;
-   phr = b;
+  if (pmn >= 60) {
+    var b = Math.floor(phr + (pmn / 60));
+    pmn = pmn - (b - phr) * 60;
+    phr = b;
   }
-  if (phr>=24) {
-    phr = phr-24;
+  if (phr >= 24) {
+    phr = phr - 24;
   }
-    var time = phr+":"+pmn+":"+sec;
-  document.getElementById("notat").innerText=time;
+  var time = phr + ":" + pmn + ":" + sec;
+  document.getElementById("notat").innerText = time;
 }
 
-    async function showNotification() {
-      document.getElementById("block").style.display="none";
-      try {
-        if (Notification.permission === "granted") {
-          let a=document.getElementById("trgt").value;
-          new Notification(a, { body: "Its Time Up remainder!! ✅" });
-        } else if (Notification.permission !== "denied") {
-          const permission = await Notification.requestPermission();
-          if (permission === "granted") {
-            new Notification("Hey Arka!", { body: "Ab toh chal gaya 🔥" });
-          }
-        }
-      } catch (err) {
-        console.error("Error:", err);
+async function showNotification() {
+  document.getElementById("block").style.display = "none";
+  try {
+    if (Notification.permission === "granted") {
+      let a = document.getElementById("trgt").value;
+      new Notification(a, { body: "Its Time Up remainder!! ✅" });
+    } else if (Notification.permission !== "denied") {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        new Notification("Hey Arka!", { body: "Ab toh chal gaya 🔥" });
       }
     }
-    
-    function custm(){
-   let el = document.getElementById("custm");
-  if (el.style.display === "none") {
-    el.style.display = "block";
-  } else {
-    el.style.display = "none";
+  } catch (err) {
+    console.error("Error:", err);
   }
-    }
+}

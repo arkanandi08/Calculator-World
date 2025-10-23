@@ -82,11 +82,13 @@ header i:hover {
   position: relative;
   bottom: 2vh;
 }
-#count{
+
+#count {
   font-size: 2.5vh;
   color: grey;
   margin-top: 1vh;
 }
+
 #drop {
   display: none;
   position: fixed;
@@ -135,12 +137,12 @@ header i:hover {
 }
 
 
-#sticky{
-    background: #000000;
-    position: sticky;
-    top: -7vh;
-    height: 22vh;
-    z-index: 1;
+#sticky {
+  background: #000000;
+  position: sticky;
+  top: -7vh;
+  height: 22vh;
+  z-index: 1;
 }
 
 footer {
@@ -154,7 +156,9 @@ footer {
   font-size: 2vh;
   line-height: 1.9;
 }
-.nte i, .todo i{
+
+.nte i,
+.todo i {
   font-size: 4vh;
 }
 
@@ -254,7 +258,8 @@ footer {
   margin-right: 1vh;
   margin-left: 1vh;
 }
-.note:hover{
+
+.note:hover {
   background-color: #4B4B4B;
 }
 
@@ -362,10 +367,12 @@ footer {
   position: absolute;
   right: 2vh;
 }
-.hn{
+
+.hn {
   margin-top: 0vh;
   font-family: poppins;
 }
+
 .cn {
   margin-top: -2.5vh;
   color: #B0B0B0;
@@ -373,16 +380,36 @@ footer {
   font-family: roboto;
 }
 
-#timer{
+#timer {
   position: absolute;
   top: 20vh;
   left: 0;
   right: 0;
-  font-size: 5vh;
   text-align: center;
   height: 60vh;
+  font-size: 4vh;
 }
-#timer input{
+
+#but {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1vh;
+  column-gap: 1vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#but input {
+  border-radius: 50px;
+  width: 20vh;
+}
+
+.tt {
+  font-size: 5vh;
+}
+
+#timer input {
   background-color: transparent;
   color: #FFFFFF;
   outline: none;
@@ -391,10 +418,9 @@ footer {
   font-family: poppins;
   cursor: pointer;
 }
-#custm{
-  display: none;
-}
-#block{
+
+
+#block {
   display: none;
   position: fixed;
   top: 0;
@@ -407,6 +433,7 @@ footer {
   z-index: 2;
   padding: 2vh;
 }
-#block h1{
+
+#block h1 {
   margin-top: 50%;
 }
