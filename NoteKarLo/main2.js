@@ -52,10 +52,10 @@ function tmset() {
   }
   else {
     var tg = document.getElementById("trgt").value;
-    window.setTimeout(showNotification, tim,tg);
-    document.getElementById("drop").style.display = "none";
+    window.setTimeout(showNotification, tim, tg);
     block();
     document.getElementById("notat").innerText = ftm;
+    document.getElementById("drop").style.display = "none";
   }
 }
 
@@ -65,7 +65,7 @@ function tim(s) {
     alert("Please Set a Target!!");
   }
   else {
-    window.setTimeout(showNotification, s,trgt);
+    window.setTimeout(showNotification, s, trgt);
     let now = new Date();
     var phr = now.getHours();
     var pmn = now.getMinutes();
@@ -96,11 +96,12 @@ function block() {
   }
   else {
     document.getElementById("block").style.display = "block";
+    window.setTimeout(check, 4000);
     window.setTimeout(nblock, 4000);
     for (i = 0; i <= 4; i++) {
       var a = document.getElementsByClassName("secytgt")[i].innerText;
       if (a == "") {
-        document.getElementsByClassName("secytgt")[i].innerText = document.getElementById("trgt").value +" - "+ document.getElementById("notat").innerText;
+        document.getElementsByClassName("secytgt")[i].innerText = document.getElementById("trgt").value + " - " + document.getElementById("notat").innerText;
         document.getElementsByClassName("secytgt")[i].style.padding = "2vh";
         break;
       }
