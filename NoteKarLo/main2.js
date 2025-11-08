@@ -42,17 +42,17 @@ function tmset() {
   var min = time.charAt(3) + time.charAt(4);
   var hour = hr - phr;
   var minute = min - pmn;
-  var tm = hour * 3600000 + minute * 60000;
+  var tim = hour * 3600000 + minute * 60000;
   var ftm = time + ":" + ps;
   if (time == "") {
     alert("Please Set a Time!!");
   }
-  else if (tm <= 0) {
+  else if (tim <= 0) {
     alert(time + " has been passed away!!")
   }
   else {
-    let tg = document.getElementById("trgt").value;
-    window.setTimeout("showNotification(tg)", tm);
+    var tg = document.getElementById("trgt").value;
+    window.setTimeout(showNotification, tim,tg);
     document.getElementById("drop").style.display = "none";
     block();
     document.getElementById("notat").innerText = ftm;
@@ -60,12 +60,12 @@ function tmset() {
 }
 
 function tim(s) {
-  let tim = document.getElementById("trgt").value;
-  if (tim == "") {
+  var trgt = document.getElementById("trgt").value;
+  if (trgt == "") {
     alert("Please Set a Target!!");
   }
   else {
-    window.setTimeout("showNotification(tim)", s);
+    window.setTimeout(showNotification, s,trgt);
     let now = new Date();
     var phr = now.getHours();
     var pmn = now.getMinutes();
