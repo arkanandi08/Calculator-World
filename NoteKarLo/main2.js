@@ -51,7 +51,8 @@ function tmset() {
     alert(time + " has been passed away!!")
   }
   else {
-    window.setTimeout(showNotification, tm);
+    let tg = document.getElementById("trgt").value;
+    window.setTimeout("showNotification(tg)", tm);
     document.getElementById("drop").style.display = "none";
     block();
     document.getElementById("notat").innerText = ftm;
@@ -64,46 +65,59 @@ function tim(s) {
     alert("Please Set a Target!!");
   }
   else {
-  window.setTimeout(showNotification, s);
-  let now = new Date();
-  var phr = now.getHours();
-  var pmn = now.getMinutes();
-  var ps = now.getSeconds();
-  var sec = s / 1000 + ps;
-  if (s % 60 == 0) {
-    pmn = Math.floor(pmn + (sec / 60));
-    sec = ps;
-  }
-  if (pmn >= 60) {
-    var b = Math.floor(phr + (pmn / 60));
-    pmn = pmn - (b - phr) * 60;
-    phr = b;
-  }
-  if (phr >= 24) {
-    phr = phr - 24;
-  }
-  var time = phr + ":" + pmn + ":" + sec;
-  document.getElementById("notat").innerText = time;
-  block();
+    window.setTimeout("showNotification(tim)", s);
+    let now = new Date();
+    var phr = now.getHours();
+    var pmn = now.getMinutes();
+    var ps = now.getSeconds();
+    var sec = s / 1000 + ps;
+    if (s % 60 == 0) {
+      pmn = Math.floor(pmn + (sec / 60));
+      sec = ps;
+    }
+    if (pmn >= 60) {
+      var b = Math.floor(phr + (pmn / 60));
+      pmn = pmn - (b - phr) * 60;
+      phr = b;
+    }
+    if (phr >= 24) {
+      phr = phr - 24;
+    }
+    var time = phr + ":" + pmn + ":" + sec;
+    document.getElementById("notat").innerText = time;
+    block();
   }
 }
 
 function block() {
-  document.getElementById("block").style.display = "block";
-  window.setTimeout(nblock, 4000);
-  document.getElementsByClassName("secytgt")[0].innerText = document.getElementById("trgt").value + document.getElementById("notat").innerText;
+  var b = document.getElementsByClassName("secytgt")[4].innerText;
+  if (b != "") {
+    alert("You have already created 5 targets first complete them");
+  }
+  else {
+    document.getElementById("block").style.display = "block";
+    window.setTimeout(nblock, 4000);
+    for (i = 0; i <= 4; i++) {
+      var a = document.getElementsByClassName("secytgt")[i].innerText;
+      if (a == "") {
+        document.getElementsByClassName("secytgt")[i].innerText = document.getElementById("trgt").value +" - "+ document.getElementById("notat").innerText;
+        document.getElementsByClassName("secytgt")[i].style.padding = "2vh";
+        break;
+      }
+    }
+  }
 }
 
 function nblock() {
+  document.getElementById("trgt").value = "";
   document.getElementById("block").style.display = "none";
   document.getElementById("cover").style.display = "none";
 }
 
-async function showNotification() {
-    document.getElementsByClassName("secytgt")[0].innerText = "";
+async function showNotification(a) {
+  document.getElementsByClassName("secytgt")[0].innerText = "";
   try {
     if (Notification.permission === "granted") {
-      let a = document.getElementById("trgt").value;
       new Notification(a, { body: "Its Time Up remainder!! ✅" });
     } else if (Notification.permission !== "denied") {
       const permission = await Notification.requestPermission();
