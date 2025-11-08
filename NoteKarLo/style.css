@@ -437,3 +437,12 @@ footer {
 #block h1 {
   margin-top: 50%;
 }
+#drop div{
+  display: none;
+}
+.secytgt{
+  display: block;
+  background: #4F4F4F;
+  padding: 1vh;
+  border-radius: 1vh;
+}

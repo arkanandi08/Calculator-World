@@ -4,27 +4,27 @@ function check() {
   document.getElementById("trgt").focus();
   document.getElementById("cover").style.display = "none";
   document.getElementById("hed").style.display = "block";
+  document.getElementById("set").style.display = "none";
+  document.getElementById("ytgt").style.display = "none";
 }
 
 function topt() {
   if (document.getElementById("topt").style.display == "none") {
     document.getElementById("topt").style.display = "block";
+    document.getElementById("cover").style.display = "block";
   }
   else {
     document.getElementById("topt").style.display = "none";
+    document.getElementById("cover").style.display = "none";
   }
 }
 
 function drop() {
   if (document.getElementById("drop").style.display == "none") {
+    document.getElementById("set").style.display = "block";
     document.getElementById("drop").style.display = "block";
     document.getElementById("cover").style.display = "block";
     document.getElementById("hed").style.display = "none";
-  }
-  else {
-    document.getElementById("'drop").style.display = "none";
-    document.getElementById("cover").style.display = "none";
-    document.getElementById("hed").style.display = "block";
   }
 }
 
@@ -43,7 +43,7 @@ function tmset() {
   var hour = hr - phr;
   var minute = min - pmn;
   var tm = hour * 3600000 + minute * 60000;
-  var ftm = time+":"+ps;
+  var ftm = time + ":" + ps;
   if (time == "") {
     alert("Please Set a Time!!");
   }
@@ -53,13 +53,17 @@ function tmset() {
   else {
     window.setTimeout(showNotification, tm);
     document.getElementById("drop").style.display = "none";
-    document.getElementById("block").style.display = "block";
+    block();
     document.getElementById("notat").innerText = ftm;
   }
 }
 
 function tim(s) {
-  document.getElementById('block').style.display = 'block';
+  let tim = document.getElementById("trgt").value;
+  if (tim == "") {
+    alert("Please Set a Target!!");
+  }
+  else {
   window.setTimeout(showNotification, s);
   let now = new Date();
   var phr = now.getHours();
@@ -80,10 +84,23 @@ function tim(s) {
   }
   var time = phr + ":" + pmn + ":" + sec;
   document.getElementById("notat").innerText = time;
+  block();
+  }
+}
+
+function block() {
+  document.getElementById("block").style.display = "block";
+  window.setTimeout(nblock, 4000);
+  document.getElementsByClassName("secytgt")[0].innerText = document.getElementById("trgt").value + document.getElementById("notat").innerText;
+}
+
+function nblock() {
+  document.getElementById("block").style.display = "none";
+  document.getElementById("cover").style.display = "none";
 }
 
 async function showNotification() {
-  document.getElementById("block").style.display = "none";
+    document.getElementsByClassName("secytgt")[0].innerText = "";
   try {
     if (Notification.permission === "granted") {
       let a = document.getElementById("trgt").value;
@@ -91,10 +108,23 @@ async function showNotification() {
     } else if (Notification.permission !== "denied") {
       const permission = await Notification.requestPermission();
       if (permission === "granted") {
-        new Notification("Hey Arka!", { body: "Ab toh chal gaya 🔥" });
+        new Notification("Hey User!", { body: "Now you can get notifications like this 🔥" });
       }
     }
   } catch (err) {
     console.error("Error:", err);
   }
+}
+
+function trgts() {
+  if (document.getElementById("drop").style.display == "none") {
+    document.getElementById("drop").style.display = "block";
+    document.getElementById("cover").style.display = "block";
+    document.getElementById("hed").style.display = "none";
+    document.getElementById("ytgt").style.display = "block";
+  }
+}
+
+function notes() {
+  window.location.href = 'notes.html';
 }

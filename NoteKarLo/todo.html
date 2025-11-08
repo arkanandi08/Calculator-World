@@ -13,10 +13,10 @@
 <body onload="check()">
   <div id="cover" onclick="check()"></div>
   <header id="hed">
-    <i class="fa fa-ellipsis-v" id="tm" onclick="topt()"></i>
+    <i class="fa fa-ellipsis-v" id="tm" onclick="topt()" style="right:2.2vh;top: 1.7vh;display: inline;"></i>
   </header>
-  <div id="topt">Edit<br>
-    <hr class="hr">Hide completed<br>
+  <div id="topt"><div onclick="trgts()">My targets</div>
+    <hr class="hr">Completed targets<br>
     <hr class="hr"> Settings
   </div>
   
@@ -27,11 +27,10 @@
   </div>
   
   <div id="block">
-    <h1>Waiting For Notification!!</h1>
-    <hr><br>
-    <h2>You will Receive the Notification at <div id="notat"></div>
-    </h2><br>
-    Don't Refresh Or Close This Page Otherwise you will not receive any notification.
+    <h1>You will Receive the Notification at <div id="notat"></div>
+    </h1><br><hr><br>
+    Don't Refresh Or Close This Page Otherwise you will not receive any notification. <br><br><hr><br><br><br>
+    <h2> You can see your targets in My targets section.</h2>
   </div>
   <form name="tf" id="timer">
     <input type="text" id="trgt" placeholder="Write your target here..."><br><br>Set Time For Your Target <br><br>
@@ -49,19 +48,24 @@
     </div>
     <br><br>
     <div id="drop">
-      <div class="done" onclick="drop()">Cancel</div><br><br><br>
-      <input type="time" id="tmp"><br><br>
-      <input type="button" class="tmbut" onclick="tmset()" value="Set Time">
+      <aside class="done" onclick="check()">Cancel</aside><br><br><br>
+      <div id="set">
+        <input type="time" id="tmp"><br><br>
+        <input type="button" class="tmbut" onclick="tmset()" value="Set Time">
+      </div>
+      <div id="ytgt">
+        <section class="secytgt"></section>
+      </div>
     </div>
   </form>
   <footer>
-    <div class="nte" onclick="document.getElementById('block').style.display='block'; window.location.href='notes.html'">
+    <div class="nte" onclick="notes()">
       <i class="fa fa-file-text-o" aria-hidden="true"></i><br>
       Notes
     </div>
     <div class="todo">
       <i class="fa fa-check-square" aria-hidden="true"></i><br>
-      To-dos
+      Reminders
     </div>
   </footer>
 </body>
