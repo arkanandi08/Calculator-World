@@ -33,29 +33,38 @@ function create() {
 }
 
 function tmset() {
-  let time = document.getElementById("tmp").value;
-  let now = new Date();
-  var phr = now.getHours();
-  var pmn = now.getMinutes();
-  var ps = now.getSeconds();
-  var hr = time.charAt(0) + time.charAt(1);
-  var min = time.charAt(3) + time.charAt(4);
-  var hour = hr - phr;
-  var minute = min - pmn;
-  var tim = hour * 3600000 + minute * 60000;
-  var ftm = time + ":" + ps;
-  if (time == "") {
-    alert("Please Set a Time!!");
-  }
-  else if (tim <= 0) {
-    alert(time + " has been passed away!!")
+  var trgt = document.getElementById("trgt").value;
+  if (trgt == "") {
+    alert("Please Set a Target!!");
+    document.getElementById("trgt").focus();
+    check();
   }
   else {
-    var tg = document.getElementById("trgt").value;
-    window.setTimeout(showNotification, tim, tg);
-    block();
-    document.getElementById("notat").innerText = ftm;
-    document.getElementById("drop").style.display = "none";
+    let time = document.getElementById("tmp").value;
+    let now = new Date();
+    var phr = now.getHours();
+    var pmn = now.getMinutes();
+    var ps = now.getSeconds();
+    var hr = time.charAt(0) + time.charAt(1);
+    var min = time.charAt(3) + time.charAt(4);
+    var hour = hr - phr;
+    var minute = min - pmn;
+    var tim = hour * 3600000 + minute * 60000;
+    var ftm = time + ":" + ps;
+    if (time == "") {
+      alert("Please Set a Time!!");
+      document.getElementById("tmp").focus();
+    }
+    else if (tim <= 0) {
+      alert(time + " has been passed away!!")
+    }
+    else {
+      var tg = document.getElementById("trgt").value;
+      window.setTimeout(showNotification, tim, tg);
+      document.getElementById("notat").innerText = ftm;
+      document.getElementById("drop").style.display = "none";
+      block();
+    }
   }
 }
 
@@ -63,6 +72,7 @@ function tim(s) {
   var trgt = document.getElementById("trgt").value;
   if (trgt == "") {
     alert("Please Set a Target!!");
+    document.getElementById("trgt").focus();
   }
   else {
     window.setTimeout(showNotification, s, trgt);
@@ -98,12 +108,53 @@ function block() {
     document.getElementById("block").style.display = "block";
     window.setTimeout(check, 4000);
     window.setTimeout(nblock, 4000);
+    var cl, a0, a1, a2, a3, tg, aa, bb, c, d, e, f, g;
+    cl = document.getElementsByClassName("secytgt");
+    a0 = cl[0].innerText;
+    a1 = cl[1].innerText;
+    a2 = cl[2].innerText;
+    a3 = cl[3].innerText;
     for (i = 0; i <= 4; i++) {
-      var a = document.getElementsByClassName("secytgt")[i].innerText;
+      a = cl[i].innerText;
+      tg = document.getElementById("trgt").value;
+      f = document.getElementById("notat").innerText;
       if (a == "") {
-        document.getElementsByClassName("secytgt")[i].innerText = document.getElementById("trgt").value + " - " + document.getElementById("notat").innerText;
-        document.getElementsByClassName("secytgt")[i].style.padding = "2vh";
+        cl[i].innerText = tg + " - " + f;
         break;
+      }
+      else {
+        aa = cl[i].innerText;
+        c = aa.substring(aa.length - 8, aa.length);
+        d = c.trim();
+        let eParts = d.split(":").map(Number);
+        e = eParts[0] * 3600 + eParts[1] * 60 + eParts[2];
+        let gParts = f.split(":").map(Number);
+        g = gParts[0] * 3600 + gParts[1] * 60 + gParts[2];
+        if (g < e) {
+          cl[i].innerText = tg + " - " + f;
+          if (cl[i + 1].innerText == "") {
+            cl[i + 1].innerText = aa;
+            break;
+          }
+          else if (cl[i + 2].innerText == "") {
+            cl[i + 2].innerText = cl[i + 1].innerText;
+            cl[i + 1].innerText = aa;
+            break;
+          }
+          else if (cl[i + 3].innerText == "") {
+            cl[i + 3].innerText = cl[i + 2].innerText;
+            cl[i + 2].innerText = cl[i + 1].innerText;
+            cl[i + 1].innerText = aa;
+            break;
+          }
+          else if (cl[i + 4].innerText == "") {
+            cl[i + 4].innerText = cl[i + 3].innerText;
+            cl[i + 3].innerText = cl[i + 2].innerText;
+            cl[i + 2].innerText = cl[i + 1].innerText;
+            cl[i + 1].innerText = aa;
+            break;
+          }
+        }
       }
     }
   }
@@ -113,10 +164,26 @@ function nblock() {
   document.getElementById("trgt").value = "";
   document.getElementById("block").style.display = "none";
   document.getElementById("cover").style.display = "none";
+  for (i = 0; i <= 4; i++) {
+    let cl = document.getElementsByClassName("secytgt");
+    a = cl[i].innerText;
+    if (a != "") {
+      cl[i].style.padding = "2vh";
+    }
+  }
 }
 
 async function showNotification(a) {
-  document.getElementsByClassName("secytgt")[0].innerText = "";
+  let cl = document.getElementsByClassName("secytgt");
+  for (let i = 0; i < cl.length - 1; i++) {
+    cl[i].innerText = cl[i + 1].innerText;
+  }
+  cl[cl.length - 1].innerText = "";
+  for (i = 0; i <= 4; i++) {
+    if (cl[i].innerText == "") {
+      cl[i].style.padding = "0";
+    }
+  }
   try {
     if (Notification.permission === "granted") {
       new Notification(a, { body: "Its Time Up remainder!! ✅" });
