@@ -210,3 +210,14 @@ function trgts() {
 function notes() {
   window.location.href = 'notes.html';
 }
+
+window.addEventListener("beforeunload", function(e) {
+  var elements = document.getElementsByClassName("secytgt");
+  for (var i = 0; i < elements.length; i++) {
+    if (elements[i].innerText.trim() !== "") {
+      e.preventDefault();
+      e.returnValue = "You have unfinished targets. Are you sure you want to leave?";
+      return;
+    }
+  }
+});
