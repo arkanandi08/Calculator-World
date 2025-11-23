@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JCB Mission — Syllabus Checklist</title>
+      <link rel="icon" type="image/png" href="JEE.png">
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #22c55e;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.03);
+      color-scheme: dark;
+    }
+    
+    * {
+      box-sizing: border-box
+    }
+    
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #071028 0%, #071426 60%);
+      color: #e6eef8;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    header {
+      padding: 18px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    
+    h1 {
+      font-size: 25px;
+      margin: 0;
+    }
+    
+    .wrap {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
+      padding: 18px;
+    }
+    
+    .panel {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+    }
+    
+    .left {
+      height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    
+    .subject {
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: linear-gradient(180deg, var(--glass), transparent);
+    }
+    
+    .subject h2 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+    
+    .controls {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+    
+    button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      padding: 6px 8px;
+      border-radius: 8px;
+      cursor: pointer
+    }
+    
+    button.primary {
+      border-color: transparent;
+      background: linear-gradient(90deg, #115e59, #16a34a);
+      color: white
+    }
+    
+    .search {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px
+    }
+    
+    input[type="search"] {
+      flex: 1;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: transparent;
+      color: inherit
+    }
+    
+    .topics {
+      margin-top: 8px
+    }
+    
+    .topic {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 6px
+    }
+    
+    .topic label {
+      cursor: pointer
+    }
+    
+    .progress-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px
+    }
+    
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, #22c55e, #86efac);
+      width: 0%
+    }
+    
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-left: auto
+    }
+    
+    .right {
+      height: calc(100vh - 120px);
+      overflow: auto;
+      padding: 10px
+    }
+    
+    .summary {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px
+    }
+    
+    .card {
+      padding: 12px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      min-width: 150px
+    }
+    
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 10px;
+      border-radius: 8px
+    }
+    
+    footer {
+      padding: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+    
+    @media (max-width:880px) {
+      .wrap {
+        grid-template-columns: 1fr
+      }
+      
+      .left {
+        height: auto;
+      }
+      
+      .right {
+        height: auto
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+      <h1>JEE - Checklist</h1>
+  </header>
+  <div class="card">
+    <div style="font-size:13px;color:var(--muted)">Overall Progress</div>
+    <div style="font-weight:700;font-size:20px" id="overallPct">0%</div>
+    <div class="progress-bar" style="margin-top:8px">
+      <div id="overallProgress" class="progress"></div>
+    </div>
+  </div>
+  
+  <div class="wrap">
+    <aside class="panel left">
+      <div class="search">
+        <input id="search" type="search" placeholder="Search topics (eg. 'Vectors', 'Thermodynamics')">
+        <button id="showAll">Show All</button>
+      </div>
+      
+      <div id="subjectsContainer"></div>
+    </aside>
+    
+    <main class="panel right">
+      <div class="summary">
+        
+        <div class="card">
+          <div style="font-size:13px;color:var(--muted)">Last Saved</div>
+          <div id="lastSaved">--</div>
+        </div>
+        
+        <div class="card">
+          <div style="font-size:13px;color:var(--muted)">Quick Actions</div>
+          <div style="margin-top:8px;  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1vh;
+  column-gap: 1vh;">
+            <button id="markMath">Mark Math All</button>
+            <button id="markPhys">Mark Physics All</button>
+            <button id="markChem">Mark Chem All</button>
+            <button id="exportBtn">Export JSON</button>
+            <button id="importBtn">Import JSON</button>
+            <input id="importFile" type="file" accept="application/json" style="display:none" />
+            <button id="resetAll">Reset All</button>
+            <button class="primary" id="clearCompleted">Clear Completed</button>
+          </div>
+        </div>
+      </div>
+      
+      <section id="details">
+        <h3 style="margin-top:0">Instructions</h3>
+        <p style="color:var(--muted)">Tick topics as you revise. Use export to backup progress. Import to restore.</p>
+        
+        <h3>Raw backup / restore</h3>
+        <pre id="rawJson" style="height:240px; overflow:auto">No backup yet.</pre>
+        
+      </section>
+    </main>
+  </div>
+  
+  <footer>
+    Built for your JCB focus — no timepass. Save is local to your browser only.
+  </footer>
+  
+  <script>
+    /*
+  Data below is populated from the user's uploaded syllabus (JEE).
+  Source: uploaded PDF (see header). Each subject has an array of topic strings.
+  You can edit topics here if you want to add/remove.
+*/
+    
+    const defaultData = {
+      meta: { created: new Date().toISOString() },
+      subjects: [
+      {
+        id: 'math',
+        name: 'Mathematics',
+        topics: [
+          'Sets, Relations and Functions',
+          'Complex Numbers and Quadratic Equations',
+          'Matrices and Determinants',
+          'Permutations and Combinations',
+          'Binomial Theorem',
+          'Sequence and Series',
+          'Limit, Continuity and Differentiability',
+          'Integral Calculus',
+          'Differential Equations',
+          'Coordinate Geometry',
+          'Three Dimensional Geometry',
+          'Vector Algebra',
+          'Statistics and Probability',
+          'Trigonometry'
+        ]
+      },
+      {
+        id: 'physics',
+        name: 'Physics',
+        topics: [
+          'Units and Measurements',
+          'Kinematics',
+          'Laws of Motion',
+          'Work, Energy and Power',
+          'Rotational Motion',
+          'Gravitation',
+          'Properties of Solids and Liquids',
+          'Thermodynamics',
+          'Kinetic Theory of Gases',
+          'Oscillations and Waves',
+          'Electrostatics',
+          'Current Electricity',
+          'Magnetic Effects of Current and Magnetism',
+          'Electromagnetic Induction and Alternating Currents',
+          'Electromagnetic Waves',
+          'Optics',
+          'Dual Nature of Matter and Radiation',
+          'Atoms and Nuclei',
+          'Electronic Devices',
+          'Experimental Skills'
+        ]
+      },
+      {
+        id: 'chemistry',
+        name: 'Chemistry',
+        topics: [
+          'Some Basic Concepts in Chemistry',
+          'Atomic Structure',
+          'Chemical Bonding and Molecular Structure',
+          'Chemical Thermodynamics',
+          'Solutions',
+          'Equilibrium',
+          'Redox Reactions and Electrochemistry',
+          'Chemical Kinetics',
+          'Classification of Elements and Periodicity',
+          'p-Block Elements',
+          'd- and f-Block Elements',
+          'Coordination Compounds',
+          'Purification and Characterisation of Organic Compounds',
+          'Basic Principles of Organic Chemistry',
+          'Hydrocarbons',
+          'Organic Compounds containing Halogens',
+          'Alcohols, Phenols and Ethers',
+          'Aldehydes and Ketones',
+          'Organic Compounds containing Nitrogen',
+          'Biomolecules',
+          'Principles related to Practical Chemistry'
+        ]
+      }]
+    };
+    
+    // localStorage key
+    const STORAGE_KEY = 'JCB_syllabus_progress';
+    
+    let state = loadState();
+    
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          // initialize from default
+          const s = { subjects: defaultData.subjects.map(s => ({ id: s.id, name: s.name, topics: s.topics.map(t => ({ name: t, done: false })) })), lastSaved: null };
+          saveState(s);
+          return s;
+        }
+        return JSON.parse(raw);
+      } catch (e) {
+        console.error(e);
+        const s = { subjects: defaultData.subjects.map(s => ({ id: s.id, name: s.name, topics: s.topics.map(t => ({ name: t, done: false })) })), lastSaved: null };
+        saveState(s);
+        return s;
+      }
+    }
+    
+    function saveState(newState) {
+      newState.lastSaved = new Date().toISOString();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+      state = newState;
+      render();
+    }
+    
+    function render() {
+      const container = document.getElementById('subjectsContainer');
+      container.innerHTML = '';
+      state.subjects.forEach(subject => {
+        const div = document.createElement('div');
+        div.className = 'subject';
+        const doneCount = subject.topics.filter(t => t.done).length;
+        const pct = Math.round((doneCount / subject.topics.length) * 100);
+        div.innerHTML = `
+      <h2>
+        <span>${subject.name} <small style="color:var(--muted);font-size:12px">(${doneCount}/${subject.topics.length})</small></span>
+        <span style="display:flex;gap:8px;align-items:center">
+          <button data-sub="${subject.id}" class="markAll">Mark All</button>
+          <button data-sub="${subject.id}" class="unmarkAll">Unmark All</button>
+        </span>
+      </h2>
+      <div class="progress-bar"><div class="progress" style="width:${pct}%"></div></div>
+      <div class="topics" id="topic-${subject.id}"></div>
+    `;
+        container.appendChild(div);
+        
+        const topicsDiv = div.querySelector(`#topic-${subject.id}`);
+        subject.topics.forEach((topic, idx) => {
+          const tdiv = document.createElement('div');
+          tdiv.className = 'topic';
+          tdiv.innerHTML = `
+        <input type="checkbox" id="${subject.id}-${idx}" ${topic.done ? 'checked' : ''} />
+        <label for="${subject.id}-${idx}">${topic.name}</label>
+      `;
+          topicsDiv.appendChild(tdiv);
+          // event
+          const checkbox = tdiv.querySelector('input');
+          checkbox.addEventListener('change', (e) => {
+            subject.topics[idx].done = e.target.checked;
+            saveState(JSON.parse(JSON.stringify(state)));
+          });
+        });
+      });
+      
+      // update right panel
+      const overall = calcOverall();
+      document.getElementById('overallPct').textContent = overall.pct + '%';
+      document.getElementById('overallProgress').style.width = overall.pct + '%';
+      document.getElementById('lastSaved').textContent = state.lastSaved ? new Date(state.lastSaved).toLocaleString() : '--';
+      document.getElementById('rawJson').textContent = JSON.stringify(state, null, 2);
+      
+      // wire mark/unmark buttons
+      Array.from(document.querySelectorAll('.markAll')).forEach(btn => {
+        btn.onclick = () => {
+          const sub = btn.dataset.sub;
+          markSubject(sub, true);
+        };
+      });
+      Array.from(document.querySelectorAll('.unmarkAll')).forEach(btn => {
+        btn.onclick = () => {
+          const sub = btn.dataset.sub;
+          markSubject(sub, false);
+        };
+      });
+    }
+    
+    function calcOverall() {
+      let total = 0,
+        done = 0;
+      state.subjects.forEach(s => {
+        total += s.topics.length;
+        done += s.topics.filter(t => t.done).length;
+      });
+      const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+      return { total, done, pct };
+    }
+    
+    function markSubject(subId, value) {
+      const sidx = state.subjects.findIndex(s => s.id === subId);
+      if (sidx === -1) return;
+      state.subjects[sidx].topics.forEach(t => t.done = value);
+      saveState(JSON.parse(JSON.stringify(state)));
+    }
+    
+    // header buttons
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const dataStr = JSON.stringify(state, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `JCB_syllabus_backup_${(new Date()).toISOString().slice(0,10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+    
+    document.getElementById('importBtn').addEventListener('click', () => {
+      document.getElementById('importFile').click();
+    });
+    document.getElementById('importFile').addEventListener('change', (ev) => {
+      const f = ev.target.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && parsed.subjects) {
+            // basic validation
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+            state = loadState();
+            render();
+            alert('Import successful — data loaded.');
+          } else throw new Error('Invalid file');
+        } catch (err) {
+          alert('Import failed: invalid JSON backup.');
+        }
+      };
+      reader.readAsText(f);
+    });
+    
+    document.getElementById('resetAll').addEventListener('click', () => {
+      if (!confirm('Reset all progress? This cannot be undone.')) return;
+      const newState = { subjects: defaultData.subjects.map(s => ({ id: s.id, name: s.name, topics: s.topics.map(t => ({ name: t, done: false })) })), lastSaved: null };
+      saveState(newState);
+    });
+    
+    document.getElementById('clearCompleted').addEventListener('click', () => {
+      if (!confirm('Unmark all completed topics?')) return;
+      state.subjects.forEach(s => s.topics.forEach(t => t.done = false));
+      saveState(JSON.parse(JSON.stringify(state)));
+    });
+    
+    document.getElementById('markMath').addEventListener('click', () => markSubject('math', true));
+    document.getElementById('markPhys').addEventListener('click', () => markSubject('physics', true));
+    document.getElementById('markChem').addEventListener('click', () => markSubject('chemistry', true));
+    
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) { document.querySelectorAll('.topic').forEach(d => d.style.display = 'flex'); return; }
+      document.querySelectorAll('.topic').forEach(d => {
+        const text = d.querySelector('label').textContent.toLowerCase();
+        d.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    });
+    
+    document.getElementById('showAll').addEventListener('click', () => {
+      document.getElementById('search').value = '';
+      document.querySelectorAll('.topic').forEach(d => d.style.display = 'flex');
+    });
+    
+    // initial render
+    render();
+  </script>
+</body>
+
+</html>
