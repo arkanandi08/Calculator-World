@@ -16,8 +16,9 @@
     <i class="fa fa-ellipsis-v" id="tm" onclick="topt()" style="right:2.2vh;top: 1.7vh;display: inline;"></i>
   </header>
   <div id="topt">
-    <div onclick="trgts()">My targets</div>
-    <hr class="hr">Completed targets<br>
+    <div onclick="drop('ytgt')">My targets</div>
+    <hr class="hr">
+    <div onclick="drop('dtgt')">Completed targets</div>
     <hr class="hr"> Settings
   </div>
   
@@ -47,7 +48,7 @@
       <input type="button" class="tmbut" onclick="tim(1800000)" value="30min">
       <input type="button" class="tmbut" onclick="tim(3600000)" value="1hour">
       <input type="button" class="tmbut" onclick="tim(7200000)" value="2hour">
-      <input type="button" class="tmbut" onclick="drop()" value="Custom">
+      <input type="button" class="tmbut" onclick="drop('set')" value="Custom">
     </div>
     <br><br>
     <div id="drop">
@@ -64,6 +65,7 @@
         <section class="secytgt"></section>
         
       </div>
+      <div id="dtgt"></div>
     </div>
   </form>
   <footer>

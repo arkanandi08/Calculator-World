@@ -19,12 +19,20 @@ function topt() {
   }
 }
 
-function drop() {
+function drop(a) {
   if (document.getElementById("drop").style.display == "none") {
-    document.getElementById("set").style.display = "block";
     document.getElementById("drop").style.display = "block";
     document.getElementById("cover").style.display = "block";
     document.getElementById("hed").style.display = "none";
+    if (a == "set") {
+      document.getElementById("set").style.display = "block";
+    }
+    else if(a == "ytgt"){
+      document.getElementById("ytgt").style.display = "block";
+    }
+    else if(a == "ytgt"){
+      document.getElementById("dtgt").style.display = "block";
+    }
   }
 }
 
@@ -198,14 +206,7 @@ async function showNotification(a) {
   }
 }
 
-function trgts() {
-  if (document.getElementById("drop").style.display == "none") {
-    document.getElementById("drop").style.display = "block";
-    document.getElementById("cover").style.display = "block";
-    document.getElementById("hed").style.display = "none";
-    document.getElementById("ytgt").style.display = "block";
-  }
-}
+
 
 function notes() {
   window.location.href = 'notes.html';
