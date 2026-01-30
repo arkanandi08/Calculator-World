@@ -74,7 +74,7 @@ body.loaded #world {
     height: 100%;
   }
 
-  .planetim {
+  .planet img{
     width: 80vw;
   }
 
@@ -294,24 +294,21 @@ header {
   display: none;
   z-index: 2;
 }
-.naam{
+.planet .naam{
   position: fixed;
   left: 50%;
   top: 50%;
   z-index: 2;
-  transform: translate(-50%, -50%);
+  display: inline;
+  transform: translate(-50%,-50%);
   transition: all 1s ease-in-out;
   color: white;
-  width: 80%;
-  max-width: 72vh;
-  height: 80%;
-  max-height: 72vh;
   font-size: 5vh;
-  border-radius: 50%;
   text-align: center;
   justify-content: center;
 }
-.planetim {
+
+.planet img{
   position: fixed;
   left: 50%;
   top: 50%;
@@ -323,13 +320,13 @@ header {
   transition: all 1s ease-in-out;
 }
 
-.planetim:hover {
+.planet:hover img{
   box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.7);
   width: 85%;
   left: 50%;
 }
-.naam:hover {
-  font-size: 0px;
+.planet:hover .naam{
+  opacity: 0;
 }
 
 /* .shiny-border {
