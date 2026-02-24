@@ -27,10 +27,10 @@ function drop(a) {
     if (a == "set") {
       document.getElementById("set").style.display = "block";
     }
-    else if(a == "ytgt"){
+    else if (a == "ytgt") {
       document.getElementById("ytgt").style.display = "block";
     }
-    else if(a == "ytgt"){
+    else if (a == "ytgt") {
       document.getElementById("dtgt").style.display = "block";
     }
   }
@@ -223,8 +223,8 @@ window.addEventListener("beforeunload", function(e) {
   }
 });
 
-window.addEventListener("load", function () {
-
+window.addEventListener("load", function() {
+  
   const schedule = [
     { text: "7-10: MHT CET Book Test", time: "07:00" },
     { text: "10:00-11:45 Physics class + breakfast", time: "10:00" },
@@ -239,21 +239,21 @@ window.addEventListener("load", function () {
     { text: "11:30-12:00 Prepare for Sleep", time: "23:30" },
     { text: "12:00-6:30 Sleep", time: "00:00" }
   ];
-
+  
   const now = new Date();
-
+  
   schedule.forEach(item => {
     let [hours, minutes] = item.time.split(":").map(Number);
-
+    
     let targetTime = new Date();
     targetTime.setHours(hours);
     targetTime.setMinutes(minutes);
     targetTime.setSeconds(0);
-
+    
     if (targetTime > now) {
       let diff = targetTime - now;
       window.setTimeout(showNotification, diff, item.text);
     }
   });
-
+  
 });
