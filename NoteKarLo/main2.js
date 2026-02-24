@@ -223,8 +223,10 @@ window.addEventListener("beforeunload", function(e) {
   }
 });
 
-window.addEventListener("load", function() {
-  
+//ignore this 
+
+window.addEventListener("load", function () {
+
   const schedule = [
     { text: "7-10: MHT CET Book Test", time: "07:00" },
     { text: "10:00-11:45 Physics class + breakfast", time: "10:00" },
@@ -239,21 +241,49 @@ window.addEventListener("load", function() {
     { text: "11:30-12:00 Prepare for Sleep", time: "23:30" },
     { text: "12:00-6:30 Sleep", time: "00:00" }
   ];
-  
+
   const now = new Date();
-  
+
   schedule.forEach(item => {
     let [hours, minutes] = item.time.split(":").map(Number);
-    
+
     let targetTime = new Date();
     targetTime.setHours(hours);
     targetTime.setMinutes(minutes);
     targetTime.setSeconds(0);
-    
+
     if (targetTime > now) {
       let diff = targetTime - now;
       window.setTimeout(showNotification, diff, item.text);
     }
   });
-  
+
+});
+
+window.addEventListener("load", function () {
+
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  const routine = [
+    { text: "MHT CET Book Test 🔥", start: 7 * 60, end: 10 * 60 },
+    { text: "Physics Class + Breakfast ⚡", start: 10 * 60, end: 11 * 60 + 45 },
+    { text: "Bath 🛁", start: 11 * 60 + 45, end: 12 * 60 + 15 },
+    { text: "Mathematics 🧮", start: 12 * 60 + 15, end: 14 * 60 },
+    { text: "Lunch 🍛", start: 14 * 60, end: 14 * 60 + 15 },
+    { text: "Chemistry 🧪", start: 14 * 60 + 15, end: 16 * 60 },
+    { text: "Homework + Advanced 📘", start: 16 * 60, end: 18 * 60 },
+    { text: "MHT CET Online Test 🎯", start: 18 * 60, end: 21 * 60 },
+    { text: "Dinner 🍽️", start: 21 * 60, end: 21 * 60 + 30 },
+    { text: "CET Mistakes + Revision 📈", start: 21 * 60 + 30, end: 23 * 60 + 30 },
+    { text: "Prepare for Sleep 🌙", start: 23 * 60 + 30, end: 24 * 60 },
+    { text: "Sleep 😴", start: 0, end: 6 * 60 + 30 }
+  ];
+
+  routine.forEach(item => {
+    if (currentMinutes >= item.start && currentMinutes < item.end) {
+      showNotification("Right Now: " + item.text);
+    }
+  });
+
 });
