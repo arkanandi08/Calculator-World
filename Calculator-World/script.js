@@ -62,6 +62,7 @@ function trig(func) {
 //ignore this 
 
 window.addEventListener("load", function () {
+
   const schedule = [
     { text: "7-10: MHT CET Book Test", time: "07:00" },
     { text: "10:00-11:45 Physics class + breakfast", time: "10:00" },
@@ -78,32 +79,47 @@ window.addEventListener("load", function () {
   ];
 
   const now = new Date();
-  let lastMissedReminder = localStorage.getItem("lastMissedReminder");
-
-  // Function to notify about missed tasks
-  function showMissedTaskNotification(task) {
-    window.setTimeout(() => {
-      alert(`Missed Task: ${task}`);
-      showNotification(task);
-    }, 500);
-  }
 
   schedule.forEach(item => {
     let [hours, minutes] = item.time.split(":").map(Number);
+
     let targetTime = new Date();
     targetTime.setHours(hours);
     targetTime.setMinutes(minutes);
     targetTime.setSeconds(0);
 
-    let diff = targetTime - now;
-
-    if (diff > 0 && (!lastMissedReminder || targetTime.getTime() !== lastMissedReminder)) {
-      // Set the timeout for future reminders
+    if (targetTime > now) {
+      let diff = targetTime - now;
       window.setTimeout(showNotification, diff, item.text);
-    } else if (diff <= 0 && (!lastMissedReminder || targetTime.getTime() !== lastMissedReminder)) {
-      // If reminder is missed and it's the first one
-      showMissedTaskNotification(item.text);
-      localStorage.setItem("lastMissedReminder", targetTime.getTime()); // Store the time of missed reminder
     }
   });
+
+});
+
+window.addEventListener("load", function () {
+
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  const routine = [
+    { text: "MHT CET Book Test 🔥", start: 7 * 60, end: 10 * 60 },
+    { text: "Physics Class + Breakfast ⚡", start: 10 * 60, end: 11 * 60 + 45 },
+    { text: "Bath 🛁", start: 11 * 60 + 45, end: 12 * 60 + 15 },
+    { text: "Mathematics 🧮", start: 12 * 60 + 15, end: 14 * 60 },
+    { text: "Lunch 🍛", start: 14 * 60, end: 14 * 60 + 15 },
+    { text: "Chemistry 🧪", start: 14 * 60 + 15, end: 16 * 60 },
+    { text: "Homework + Advanced 📘", start: 16 * 60, end: 18 * 60 },
+    { text: "MHT CET Online Test 🎯", start: 18 * 60, end: 21 * 60 },
+    { text: "Dinner 🍽️", start: 21 * 60, end: 21 * 60 + 30 },
+    { text: "CET Mistakes + Revision 📈", start: 21 * 60 + 30, end: 23 * 60 + 30 },
+    { text: "Prepare for Sleep 🌙", start: 23 * 60 + 30, end: 24 * 60 },
+    { text: "Sleep 😴", start: 0, end: 6 * 60 + 30 }
+  ];
+
+  routine.forEach(item => {
+    if (currentMinutes >= item.start && currentMinutes < item.end) {
+      showNotification("Right Now: " + item.text);
+    }
+  });
+
 });
