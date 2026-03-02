@@ -227,45 +227,47 @@ window.addEventListener("beforeunload", function(e) {
 
 window.addEventListener("load", function() {
   
-  // Current time notifications (immediate task check)
   const now = new Date();
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
   
+  /* ================= CURRENT TASK CHECK ================= */
+  
   const routine = [
     { text: "MHT CET Book Test 🔥", start: 7 * 60, end: 10 * 60 },
-    { text: "Physics Class + Breakfast ⚡", start: 10 * 60, end: 11 * 60 + 45 },
+    { text: "Phy/Chem Revision + Breakfast ⚡", start: 10 * 60, end: 11 * 60 + 45 },
     { text: "Bath 🛁", start: 11 * 60 + 45, end: 12 * 60 + 15 },
-    { text: "Mathematics 🧮", start: 12 * 60 + 15, end: 14 * 60 },
+    { text: "Mathematics Revision 🧮", start: 12 * 60 + 15, end: 14 * 60 },
     { text: "Lunch 🍛", start: 14 * 60, end: 14 * 60 + 15 },
-    { text: "Chemistry 🧪", start: 14 * 60 + 15, end: 16 * 60 },
-    { text: "Homework + Advanced 📘", start: 16 * 60, end: 18 * 60 },
-    { text: "MHT CET Online Test 🎯", start: 18 * 60, end: 21 * 60 },
+    { text: "Science TV Break 📺", start: 14 * 60 + 15, end: 14 * 60 + 30 },
+    { text: "MHT CET Online Test 🎯", start: 15 * 60, end: 18 * 60 },
+    { text: "CET Mistakes + Revision 📈", start: 18 * 60, end: 19 * 60 },
+    { text: "JEE Advanced Physics 🚀", start: 19 * 60, end: 21 * 60 },
     { text: "Dinner 🍽️", start: 21 * 60, end: 21 * 60 + 30 },
-    { text: "CET Mistakes + Revision 📈", start: 21 * 60 + 30, end: 23 * 60 + 30 },
+    { text: "JEE Advanced Maths 🧠", start: 21 * 60 + 30, end: 23 * 60 + 30 },
     { text: "Prepare for Sleep 🌙", start: 23 * 60 + 30, end: 24 * 60 },
     { text: "Sleep 😴", start: 0, end: 6 * 60 + 30 }
   ];
   
-  // Check current task and send notification
   routine.forEach(item => {
     if (currentMinutes >= item.start && currentMinutes < item.end) {
       showNotification("Right Now: " + item.text);
     }
   });
   
-  // Reminder for future tasks
-  const currentTime = new Date();
+  /* ================= FUTURE REMINDERS ================= */
+  
   const futureSchedule = [
-    { text: "MHT CET Book Test 🔥", time: "07:00" },
-    { text: "Physics Class + Breakfast ⚡", time: "10:00" },
-    { text: "Bath 🛁", time: "11:45" },
-    { text: "Mathematics 🧮", time: "12:15" },
-    { text: "Lunch 🍛", time: "14:00" },
-    { text: "Chemistry 🧪", time: "14:15" },
-    { text: "Homework + Advanced 📘", time: "16:00" },
-    { text: "MHT CET Online Test 🎯", time: "18:00" },
+    { text: "Start MHT CET Book Test 🔥", time: "07:00" },
+    { text: "Start Phy/Chem Revision ⚡", time: "10:00" },
+    { text: "Bath Time 🛁", time: "11:45" },
+    { text: "Start Mathematics Revision 🧮", time: "12:15" },
+    { text: "Lunch Time 🍛", time: "14:00" },
+    { text: "Science TV Break 📺", time: "14:15" },
+    { text: "Start MHT CET Online Test 🎯", time: "15:00" },
+    { text: "CET Mistakes Review 📈", time: "18:00" },
+    { text: "JEE Advanced Physics 🚀", time: "19:00" },
     { text: "Dinner 🍽️", time: "21:00" },
-    { text: "CET Mistakes + Revision 📈", time: "21:30" },
+    { text: "JEE Advanced Maths 🧠", time: "21:30" },
     { text: "Prepare for Sleep 🌙", time: "23:30" },
     { text: "Sleep 😴", time: "00:00" }
   ];
@@ -278,8 +280,8 @@ window.addEventListener("load", function() {
     targetTime.setMinutes(minutes);
     targetTime.setSeconds(0);
     
-    if (targetTime > currentTime) {
-      let diff = targetTime - currentTime;
+    if (targetTime > now) {
+      let diff = targetTime - now;
       window.setTimeout(showNotification, diff, item.text);
     }
   });
